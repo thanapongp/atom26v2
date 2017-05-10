@@ -1,0 +1,19 @@
+.university-icon-header {
+    margin-top: 1em;
+}
+
+.university-icon-row {
+    display: flex;
+    justify-content: center;
+
+    .university-icon {
+        width: 100%;
+        max-width: 450px;
+        margin: 1em;
+        border-radius: 1em;
+
+        img {
+            height: 50px;
+        }
+    }
+}

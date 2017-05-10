@@ -1,0 +1,43 @@
+.sponsor-content {
+	width: 100%;
+	max-width: 1200px;
+	margin: 1em auto auto auto;
+	padding: 1em 1em 5em;
+
+	.sponsor-header {
+		display: flex;
+		justify-content: center;
+		margin: 1em 0;
+		font-size: 1.5em;
+		color: #0068B0;
+
+		@media (max-width: 768px) {
+			font-size: 1em;
+		}
+
+		> span {
+			color: #FFA02F;
+		}
+	}
+
+	.sponsor-list {
+		display: flex;
+		justify-content: space-around;
+
+		img {
+			max-height: 100px;
+
+			@media (max-width: 768px) {
+				max-height: 50px;
+			}
+
+			@media (max-width: 544px) {
+				max-width: 30px;
+			}
+		}
+
+		&:not(:first-of-type) {
+			margin-top: 1em;
+		}
+	}
+}

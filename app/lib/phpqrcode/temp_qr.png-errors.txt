@@ -1,0 +1,1 @@
+2017-05-01 12:21:31: imagepng(/Users/thanapongp/sites/atom26v2/resourcesimages/temp_qr.png): failed to open stream: No such file or directory

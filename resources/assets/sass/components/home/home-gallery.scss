@@ -1,0 +1,46 @@
+.home-gallery {
+	margin: 1em auto;
+
+	a, a:hover, a:active, a:visited {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.grid-big {
+		display: flex;
+		height: 380px;
+		padding: 1em;
+		box-shadow: inset 0px -80px 72px -30px rgba(0,0,0,0.35);
+
+		span {
+			align-self: flex-end;
+			line-height: 1em;
+			font-size: 1.5em;
+
+			span {
+				font-size: 0.65em;
+			}
+		}
+	}
+
+	.grid-small {
+		display: flex;
+		height: 180px;
+		padding: 0.5em;
+		box-shadow: inset 0px -80px 72px -30px rgba(0,0,0,0.35);
+
+		span {
+			align-self: flex-end;
+			line-height: 1em;
+			font-size: 1.2em;
+
+			span {
+				font-size: 0.65em;
+			}
+		}
+	}
+
+	.grid-small-top {
+		margin-bottom: 10px;
+	}
+}

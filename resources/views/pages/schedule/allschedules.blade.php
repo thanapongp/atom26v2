@@ -1,0 +1,149 @@
+@extends('layout.main')
+
+@section('title', 'ตารางการแข่งขัน')
+
+@section('content')
+<div class="content-container">
+    <div class="section-header">
+        <div>ตาราง<span style="color: #FFA02F">การแข่งขันรวม</span></div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered schedule-table">
+            <thead class="thead-inverse">
+            <tr>
+                <th>กีฬา / กิจกรรม <br> <span class="hidden-md-down">(คลิกเพื่อดูผลการแข่งขัน)</span></th>
+                <th>สถานที่</th>
+                <th>อา <br> 27 พ.ค.</th>
+                <th>จ <br> 28 พ.ค.</th>
+                <th>อ <br> 29 พ.ค.</th>
+                <th>พ <br> 30 พ.ค.</th>
+                <th>พฤ <br> 31 พ.ค.</th>
+                <th>ศ <br> 1 มิ.ย.</th>
+                <th>ส <br> 2 มิ.ย.</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>พิธีเปิด</td>
+                <td>สนามกีฬากลาง ม.อุบลฯ</td>
+                <td><i class="fa fa-circle"></i></td>
+                <td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td><a href="#">กรีฑา</a></td>
+                <td>สนามกีฬากลาง ม.อุบลฯ</td>
+                <td></td><td></td>
+                <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
+                <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
+                <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
+                <td></td><td></td>
+            </tr>
+            <tr>
+                <td><a href="#">เซปักตะกร้อ</a></td>
+                <td>อาคารกิจกรรม</td>
+                <td></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="#">บริดจ์</a></td>
+                <td>อาคารวิจัย คณะวิทย์ฯ</td>
+                <td></td><td></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
+                <td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td><a href="#">หมากกระดาน</a></td>
+                <td>อาคารวิจัย คณะวิทย์ฯ</td>
+                <td></td><td></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="#">บาสเก็ตบอล</a></td>
+                <td>ศูนย์กีฬาเอนกประสงค์</td>
+                <td></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="#">เปตอง</a></td>
+                <td>สนามเปตอง ม.อุบลฯ</td>
+                <td></td><td></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="#">ฟุตซอล</a></td>
+                <td>สนามฟุตซอล ม.อุบลฯ</td>
+                <td></td><td></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="#">ฟุตบอล</a></td>
+                <td>สนามข้างแฟลตบุคลากร</td>
+                <td></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="#">E-Sport</a></td>
+                <td>อาคารวิจัย คณะวิทย์ฯ</td>
+                <td></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="#">วิชาการ</a></td>
+                <td>อาคารวิจัย คณะวิทย์ฯ</td>
+                <td></td><td></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>พิธีปิด</td>
+                <td>สนามกีฬากลาง ม.อุบลฯ</td>
+                <td></td><td></td><td></td><td></td><td></td><td></td>
+                <td><i class="fa fa-circle"></i></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="text-right">
+            <i class="fa fa-circle"></i> = การแข่งขันปกติ <br>
+            <i class="fa fa-trophy fa-2x text-warning"></i> = การแข่งชิงเหรียญ
+        </div>
+    </div>
+</div>
+@endsection
