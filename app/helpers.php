@@ -73,6 +73,12 @@ function imagecreatefrombmp($filename) {
     return $image;
 }
 
+/**
+ * Redirect user based on their role.
+ *
+ * @param \Atom26\Accounts\User $user
+ * @return \Illuminate\Http\RedirectResponse
+ */
 function redirectBasedOnUserRole($user)
 {
     if ($user->isAdmin()) {
@@ -88,4 +94,14 @@ function redirectBasedOnUserRole($user)
     }
 
     return redirect('/profile');
+}
+
+/**
+ * Get the current authenticated user.
+ *
+ * @return \Illuminate\Contracts\Auth\Authenticatable|\Atom26\Accounts\User
+ */
+function current_user()
+{
+    return auth()->user();
 }

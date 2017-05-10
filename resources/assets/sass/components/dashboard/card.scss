@@ -1,0 +1,14 @@
+.dashboard-card {
+
+    margin-top: 30px;
+
+    .card-title {
+        padding: 1rem;
+        border-radius: 0.25rem;
+        background-color: #FAFAFA;
+    }
+
+    &:not(:first-of-type) {
+        margin: 15px 0;
+    }
+}
