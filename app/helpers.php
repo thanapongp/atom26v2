@@ -76,7 +76,7 @@ function imagecreatefrombmp($filename) {
 /**
  * Redirect user based on their role.
  *
- * @param \Atom26\Accounts\User $user
+ * @param \Atom26\Accounts\User  $user
  * @return \Illuminate\Http\RedirectResponse
  */
 function redirectBasedOnUserRole($user)
