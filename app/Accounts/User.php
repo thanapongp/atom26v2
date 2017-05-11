@@ -136,6 +136,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Check if user is athlete.
+     *
+     * @return bool
+     */
+    public function isAthlete()
+    {
+        return $this->sports->count() > 0;
+    }
+
+    /**
      * Check if the user is own the specific model
      *
      * @param  mixed    $model  Any Eloquent model
@@ -185,7 +195,27 @@ class User extends Authenticatable
      */
     public function fullname()
     {
-        return $this->info->title . $this->info->firstname . ' ' . $this->info->lastname;
+        return $this->info->title . trim($this->info->firstname) . ' ' . $this->info->lastname;
+    }
+
+    /**
+     * Get user's picture.
+     *
+     * @return mixed
+     */
+    public function pic()
+    {
+        return url('/'.$this->info->pic);
+    }
+
+    /**
+     * Get user's ID Card URL.
+     *
+     * @return \Illuminate\Contracts\Routing\UrlGenerator|string
+     */
+    public function idCard()
+    {
+        return url('/files/card/uni_' . $this->university()->id . '/card_' . $this->getQRCode() . '.png');
     }
 
     /**

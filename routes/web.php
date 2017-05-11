@@ -22,6 +22,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
     Route::get('/editor/news/edit/{post}', 'Resource\NewsController@edit')->name('news.edit');
     Route::post('/editor/news/edit/{post}', 'Resource\NewsController@update')->name('news.update');
     Route::post('/editor/news/delete/{post}', 'Resource\NewsController@destroy')->name('news.delete');
+
+    Route::get('/hostess', 'Dashboard\HostessDashboardController@showHostessDashboard')->name('dashboard.hostess');
+    Route::get('/hostess/athletes', 'Dashboard\HostessDashboardController@showAllAthletes')->name('dashboard.hostess.athlete');
+    Route::get('/hostess/attendee/{user}', 'Dashboard\HostessDashboardController@showAttendeeInfo')->name('hostess.attendee');
+    Route::get('/hostess/attendees', 'Dashboard\HostessDashboardController@showAllUniversities')->name('hostess.alluni');
 });
 
 Route::post('/dashboard/editor/news/upload', 'Resource\NewsController@uploadPicture')->name('news.upload');

@@ -28,7 +28,7 @@ class UserTypesTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 2,
-                'code' => 'A',
+                'code' => 'B',
                 'name' => 'กรรมการอำนวยการ/กรรมการดำเนินงาน',
                 'created_at' => NULL,
                 'updated_at' => NULL,
