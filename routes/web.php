@@ -8,6 +8,8 @@ Route::get('/login', 'Auth\LoginController@showLoginForm')->name('auth.loginform
 Route::post('/login', 'Auth\LoginController@login')->name('auth.login');
 Route::post('/logout', 'Auth\LoginController@logout')->name('auth.logout');
 
+Route::get('/profile', 'PagesController@showProfilePage');
+
 Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
 
     Route::get('/', function () {

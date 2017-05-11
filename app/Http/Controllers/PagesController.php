@@ -24,6 +24,7 @@ class PagesController extends Controller
      */
     public function __construct(UserRepository $userRepository)
     {
+        $this->middleware('auth')->only(['showProfilePage']);
         $this->userRepository = $userRepository;
     }
 
@@ -68,5 +69,10 @@ class PagesController extends Controller
         });
 
         return view('pages.universities', compact('universities'));
+    }
+
+    public function showProfilePage()
+    {
+        return view('dashboard.profile', ['user' => current_user()]);
     }
 }
