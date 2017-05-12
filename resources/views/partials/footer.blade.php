@@ -41,16 +41,21 @@
             <a href="http://www.garena.in.th/" rel="nofollow">
                 <img src="/img/sponsor/7.png">
             </a>
+            <a href="http://www.garena.in.th/" rel="nofollow">
+                <img src="/img/sponsor/สปอนเซอร์.jpg">
+            </a>
         </div>
 
     </div>
 </div>
 
 <div class="footer-container">
-    <div class="footer">
-        <p>&copy; การแข่งขันกีฬาวิทยาศาสตร์สัมพันธ์แห่งประเทศไทย ครั้งที่ 26
-            ไตรธาราเกมส์</p>
-        <p>Designed and Programmed with <i class="fa fa-heart"></i> by Thanapong
-            Prathumchat.</p>
+    <div class="footer row">
+        <div class="col text-left">
+            <p>&copy; การแข่งขันกีฬาวิทยาศาสตร์สัมพันธ์แห่งประเทศไทย ครั้งที่ 26
+                ไตรธาราเกมส์</p>
+            <p>Designed and Programmed with <i class="fa fa-heart"></i> by Thanapong
+                Prathumchat.</p>
+        </div>
     </div>
 </div>
