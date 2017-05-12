@@ -20,14 +20,18 @@
 
 @section('js')
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-<script src="/js/home.js?v=1237"></script>
+<script src="/js/home.js?v=1231"></script>
 <style>
 .home-carousel {
 	height: 500px;
 }
 
-.home-carousel .carousel-cell {
-	height: 100%;
+.flickity-page-dots {
+	bottom: 15px;
+}
+
+.dot.is-selected {
+	background: #fff;
 }
 </style>
 @endsection

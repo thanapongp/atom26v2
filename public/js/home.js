@@ -2,7 +2,7 @@ $(document).ready(function () {
     $('.home-carousel').flickity({
         wrapAround: true,
         setGallerySize: false,
-        pageDots: false
+        prevNextButtons: false,
     });
 
     $('#news-carousel, #gallery-carousel').flickity({
