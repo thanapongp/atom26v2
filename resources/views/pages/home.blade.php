@@ -13,7 +13,7 @@
 
 	@include('partials.home.news')
 
-	@include('partials.home.gallery')
+	{{--@include('partials.home.gallery')--}}
 
 	@include('partials.home.info')
 @endsection
