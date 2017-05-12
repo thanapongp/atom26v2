@@ -43,10 +43,16 @@
 @section('js')
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js"></script>
+    <script src="//cdn.datatables.net/plug-ins/1.10.15/type-detection/date-uk.js"></script>
+    <script src="//cdn.datatables.net/plug-ins/1.10.15/sorting/date-uk.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#newsTable').DataTable({
                 "language": {"url" : "//cdn.datatables.net/plug-ins/1.10.12/i18n/Thai.json"},
+                "columnDefs": [
+                    { "type": "date-uk", targets: 1 }
+                ],
+                "order": [[ 1, "desc" ]]
             });
         });
     </script>

@@ -8,12 +8,12 @@
         @foreach($news as $post)
             <div class="col-md-12 carousel-cell">
                 <div class="card news-card">
-                    <a href="#" class="news-img" style="
-					background: url('http://placehold.it/318x180') no-repeat center center; 
+                    <a href="{{route('news.show', ['post' => $post->id])}}" class="news-img" style="
+					background: url({{$post->thumbnail}}) no-repeat center center;
 					background-size: cover;">
                     </a>
                     <div class="card-block">
-                        <a href="#" class="card-title">{{$post->title}}</a>
+                        <a href="{{route('news.show', ['post' => $post->id])}}" class="card-title">{{$post->title}}</a>
                         <p class="card-text">
                             <small class="text-muted">
                                 {{$post->created_at->format('d/m/Y')}}
@@ -29,12 +29,12 @@
         @foreach($news as $post)
             <div class="col-md-4">
                 <div class="card news-card">
-                    <a href="#" class="news-img" style="
-					background: url('http://placehold.it/318x180') no-repeat center center;
+                    <a href="{{route('news.show', ['post' => $post->id])}}" class="news-img" style="
+					background: url({{$post->thumbnail}}) no-repeat center center;
 					background-size: cover;">
                     </a>
                     <div class="card-block">
-                        <a href="#" class="card-title">{{$post->title}}</a>
+                        <a href="{{route('news.show', ['post' => $post->id])}}" class="card-title">{{$post->title}}</a>
                         <p class="card-text">
                             <small class="text-muted">
                                 {{$post->created_at->format('d/m/Y')}}
