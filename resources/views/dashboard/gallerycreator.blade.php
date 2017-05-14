@@ -22,7 +22,7 @@
             {{csrf_field()}}
         </form>
         
-        <label>อัพโหลดรูป (ขนาดไม่เกิน 20 MB ต่อรูป)</label>
+        <label>อัพโหลดรูป (ขนาดไม่เกิน 20 MB ต่อรูป และ ควรใช้รูปความระเอียดสูง)</label>
         <form action="{{route('gallery.upload')}}" method="POST" class="dropzone" id="imageDropzone">
             
         </form>

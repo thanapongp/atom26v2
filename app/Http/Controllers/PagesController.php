@@ -2,11 +2,12 @@
 
 namespace Atom26\Http\Controllers;
 
-use Atom26\Accounts\University;
-use Atom26\Repositories\UserRepository;
 use Atom26\Web\Post;
+use Atom26\Web\Gallery;
 use Illuminate\Http\Request;
+use Atom26\Accounts\University;
 use Illuminate\Support\Facades\Cache;
+use Atom26\Repositories\UserRepository;
 
 class PagesController extends Controller
 {
@@ -39,7 +40,9 @@ class PagesController extends Controller
             return Post::latest()->limit(3)->get();
         });
 
-        return view('pages.home', compact('news'));
+        $galleries = Gallery::latest()->limit(5)->get();
+
+        return view('pages.home', compact('news', 'galleries'));
     }
 
     /**

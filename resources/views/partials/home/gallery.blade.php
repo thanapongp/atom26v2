@@ -7,65 +7,31 @@
     <div class="row home-gallery hidden-md-down">
         <div class="col-md-6">
             <a href="#" class="grid-big" style="
-					background: url('http://placehold.it/318x180') no-repeat center center; 
+					background: url({{$galleries->first()->photos->first()->path}}) no-repeat center center;
 					background-size: cover;">
-					<span>
-						พิธีเปิดไตรธาราเกมส์
-						<br>
-						<span>124 รูป • เข้าชม 2,000 ครั้ง</span>
-					</span>
+				<span>
+					{{$galleries->first()->name}}
+					<br>
+					<span>{{$galleries->first()->photos->count()}} รูป</span>
+				</span>
             </a>
         </div>
 
         <div class="col-md-6 row">
+            @foreach($galleries->splice(1) as $gallery)
             <div class="col-md-6">
                 <a href="#" class="grid-small grid-small-top" style="
 					margin-bottom: 10px;
-					background: url('http://placehold.it/318x180') no-repeat center center; 
+					background: url({{$gallery->photos->first()->path}}) no-repeat center center; 
 					background-size: cover;">
 					<span>
-						พิธีเปิดไตรธาราเกมส์
+						{{$gallery->name}}
 						<br>
-						<span>124 รูป • เข้าชม 2,000 ครั้ง</span>
+						<span>{{$gallery->photos->count()}} รูป {{-- • เข้าชม 2,000 ครั้ง --}}</span>
 					</span>
                 </a>
             </div>
-
-            <div class="col-md-6">
-                <a href="#" class="grid-small grid-small-top" style="
-					background: url('http://placehold.it/318x180') no-repeat center center; 
-					background-size: cover;">
-					<span>
-						พิธีเปิดไตรธาราเกมส์
-						<br>
-						<span>124 รูป • เข้าชม 2,000 ครั้ง</span>
-					</span>
-                </a>
-            </div>
-
-            <div class="col-md-6">
-                <a href="#" class="grid-small" style="
-					background: url('http://placehold.it/318x180') no-repeat center center; 
-					background-size: cover;">
-					<span>
-						พิธีเปิดไตรธาราเกมส์
-						<br>
-						<span>124 รูป • เข้าชม 2,000 ครั้ง</span>
-					</span>
-                </a>
-            </div>
-
-            <div class="col-md-6">
-                <a href="#" class="grid-small" style="
-					background: url('http://placehold.it/318x180') no-repeat center center; 
-					background-size: cover;">
-					<span>
-						พิธีเปิดไตรธาราเกมส์
-						<br>
-						<span>124 รูป • เข้าชม 2,000 ครั้ง</span>
-					</span>
-                </a>
-            </div>
+            @endforeach
         </div>
     </div>
 

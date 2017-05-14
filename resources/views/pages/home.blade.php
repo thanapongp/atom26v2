@@ -12,9 +12,11 @@
 	@include('partials.home.countdown')
 
 	@include('partials.home.news')
-
+	
+	@if($galleries->count() > 0)
 	@include('partials.home.gallery')
-
+	@endif
+	
 	@include('partials.home.info')
 @endsection
 

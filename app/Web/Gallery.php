@@ -13,6 +13,13 @@ class Gallery extends Model
      */
     protected $guarded = ['id'];
 
+    /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    protected $with = ['photos'];
+
     public function photos()
     {
         return $this->hasMany('\Atom26\Web\Photo');
