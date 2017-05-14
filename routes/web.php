@@ -27,10 +27,20 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
     Route::post('/editor/news/edit/{post}', 'Resource\NewsController@update')->name('news.update');
     Route::post('/editor/news/delete/{post}', 'Resource\NewsController@destroy')->name('news.delete');
 
-    Route::get('/hostess', 'Dashboard\HostessDashboardController@showHostessDashboard')->name('dashboard.hostess');
-    Route::get('/hostess/athletes', 'Dashboard\HostessDashboardController@showAllAthletes')->name('dashboard.hostess.athlete');
-    Route::get('/hostess/attendee/{user}', 'Dashboard\HostessDashboardController@showAttendeeInfo')->name('hostess.attendee');
-    Route::get('/hostess/attendees', 'Dashboard\HostessDashboardController@showAllUniversities')->name('hostess.alluni');
+    Route::get('/editor/gallery/all', 'Resource\GalleryController@indexDashboard')->name('gallery.index.dashboard');
+    Route::get('/editor/gallery/new', 'Resource\GalleryController@create')->name('gallery.new');
+    Route::post('/editor/gallery/new', 'Resource\GalleryController@store')->name('gallery.store');
+
+    Route::post('/editor/galler/upload', 'Resource\GalleryController@upload')->name('gallery.upload');
+
+    Route::get('/hostess', 'Dashboard\HostessDashboardController@showHostessDashboard')
+        ->name('dashboard.hostess');
+    Route::get('/hostess/athletes', 'Dashboard\HostessDashboardController@showAllAthletes')
+        ->name('dashboard.hostess.athlete');
+    Route::get('/hostess/attendee/{user}', 'Dashboard\HostessDashboardController@showAttendeeInfo')
+        ->name('hostess.attendee');
+    Route::get('/hostess/attendees', 'Dashboard\HostessDashboardController@showAllUniversities')
+        ->name('hostess.alluni');
 });
 
 Route::post('/dashboard/editor/news/upload', 'Resource\NewsController@uploadPicture')->name('news.upload');

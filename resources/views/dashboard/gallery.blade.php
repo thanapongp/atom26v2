@@ -8,32 +8,34 @@
 
 @section('content')
 <div class="card dashboard-card">
-    <h4 class="card-title">ข่าวทั้งหมด
-        <a href="{{route('news.create')}}" class="btn btn-success float-right">
-            <i class="fa fa-plus"></i> เพิ่มข่าว
+    <h4 class="card-title">อัลบัมทั้งหมด
+        <a href="{{route('gallery.new')}}" class="btn btn-success float-right">
+            <i class="fa fa-plus"></i> สร้างอัลบัม
         </a>
-        <a href="{{route('gallery.index.dashboard')}}" class="btn btn-success float-right mr-2">
-            <i class="fa fa-picture-o"></i> จัดการอัลบัม
+        <a href="{{route('dashboard.editor')}}" class="btn btn-success float-right mr-2">
+            <i class="fa fa-newspaper-o"></i> จัดการข่าว
         </a>
     </h4>
     <div class="card-block">
-        <table class="table table-hover" id="newsTable" cellspacing="0" width="100%">
+        <table class="table table-hover" id="galleriesTable" cellspacing="0" width="100%">
             <thead class="thead-inverse">
             <tr>
-                <th>หัวข้อข่าว</th>
-                <th>วันที่ประกาศ</th>
+                <th>ชื่ออัลบัมรูป</th>
+                <th>จำนวนรูป</th>
+                <th>วันที่สร้าง</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($news as $post)
+            @foreach($galleries as $gallery)
             <tr>
                 <td>
-                    <a href="{{route('news.edit', ['post' => $post->id])}}">
-                        {{$post->title}}
+                    <a href="#">
+                        {{$gallery->name}}
                     </a>
                 </td>
+                <td> {{$gallery->photos->count()}} </td>
                 <td>
-                    {{$post->created_at->format('d/m/Y')}}
+                    {{$gallery->created_at->format('d/m/Y')}}
                 </td>
             </tr>
             @endforeach
@@ -50,12 +52,12 @@
     <script src="//cdn.datatables.net/plug-ins/1.10.15/sorting/date-uk.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#newsTable').DataTable({
+            $('#galleriesTable').DataTable({
                 "language": {"url" : "//cdn.datatables.net/plug-ins/1.10.12/i18n/Thai.json"},
                 "columnDefs": [
-                    { "type": "date-uk", targets: 1 }
+                    { "type": "date-uk", targets: 2 }
                 ],
-                "order": [[ 1, "desc" ]]
+                "order": [[ 2, "desc" ]]
             });
         });
     </script>
