@@ -1,4 +1,4 @@
-<div class="content-container hidden-sm-down">
+<div class="content-container hidden-sm-down" id="info">
     <div class="section-header">
         <div>เกี่ยวกับ <span style="color: #FFA02F">"ไตรธาราเกมส์"</span></div>
     </div>

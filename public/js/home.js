@@ -44,3 +44,9 @@ function initializeClock(endtime){
         }
     }, 1000);
 }
+
+function scrollToInfo() {
+    $('html, body').animate({
+        scrollTop: $("#info").offset().top
+    }, 2000);
+}

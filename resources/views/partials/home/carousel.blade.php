@@ -11,7 +11,7 @@
             </h2>
         </div>
         <div class="half-width bottom">
-            <a href="#">เกี่ยวกับไตรธาราเกมส์ <i class="fa fa-arrow-right"></i></a>
+            <a href="#info" onclick="scrollToInfo">เกี่ยวกับไตรธาราเกมส์ <i class="fa fa-arrow-right"></i></a>
         </div>
     </div>
     <div class="carousel-cell" style="background-image: url('/img/slides/slide-1.png')">
