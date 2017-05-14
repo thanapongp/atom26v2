@@ -1,5 +1,7 @@
 $(document).ready(function () {
     $('.home-carousel').flickity({
+        autoPlay: 5000,
+        pauseAutoPlayOnHover: true,
         wrapAround: true,
         setGallerySize: false,
         prevNextButtons: false,
