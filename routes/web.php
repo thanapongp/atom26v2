@@ -5,6 +5,7 @@ Route::get('/attendees', 'PagesController@showAllAttendeesPage')->name('attendee
 Route::get('/schedules', 'ScheduleController@showAllSchedulePage')->name('schedules.index');
 
 Route::get('/news/{post}', 'Resource\NewsController@show')->name('news.show');
+Route::get('/gallery/{gallery}', 'Resource\GalleryController@show')->name('gallery.show');
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('auth.loginform');
 Route::post('/login', 'Auth\LoginController@login')->name('auth.login');

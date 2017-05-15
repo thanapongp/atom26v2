@@ -6,6 +6,7 @@ use Atom26\Web\Photo;
 use Atom26\Web\Gallery;
 use Illuminate\Http\Request;
 use Atom26\Services\ImageService;
+use Illuminate\Support\Facades\Redis;
 use Atom26\Http\Controllers\Controller;
 
 class GalleryController extends Controller
@@ -104,7 +105,9 @@ class GalleryController extends Controller
      */
     public function show(Gallery $gallery)
     {
-        //
+        Redis::incr($gallery->redisKey());
+        
+        return view('pages.gallery', compact('gallery'));
     }
 
     /**

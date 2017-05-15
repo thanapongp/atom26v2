@@ -2,6 +2,7 @@
 
 namespace Atom26\Web;
 
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Database\Eloquent\Model;
 
 class Gallery extends Model
@@ -20,8 +21,31 @@ class Gallery extends Model
      */
     protected $with = ['photos'];
 
+    /**
+     * Get all photos in this gallery
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function photos()
     {
         return $this->hasMany('\Atom26\Web\Photo');
+    }
+    /**
+     * Get gallery's views count.
+     * 
+     * @return int
+     */
+    public function getViewCount()
+    {
+        if (! Redis::get($this->redisKey())) {
+            Redis::set($this->redisKey(), 0);
+        }
+
+        return number_format(Redis::get('gallery:viewcount:'.$this->id));
+    }
+
+    public function redisKey()
+    {
+        return 'gallery:viewcount:' . $this->id;
     }
 }
