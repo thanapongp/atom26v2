@@ -17,7 +17,8 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle navbar-avatar" src="http://placehold.it/35x35">
+                        <img class="rounded-circle navbar-avatar" 
+                        src="{{current_user()->pic()}}">
                         {{current_user()->fullname()}}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
