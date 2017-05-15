@@ -15,10 +15,6 @@
                 <label for="name">ชื่ออัลบัม</label>
                 <input type="text" name="name" class="form-control" placeholder="ชื่ออัลบัม" required>
             </div>
-            <div class="form-group">
-                <label for="desc">คำอธิบายอัลบัมรูป</label>
-                <textarea name="desc" class="form-control" required></textarea>
-            </div>
             {{csrf_field()}}
         </form>
         

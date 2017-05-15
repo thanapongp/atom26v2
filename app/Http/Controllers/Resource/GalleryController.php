@@ -64,8 +64,7 @@ class GalleryController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'desc' => 'required',
-            'images.*' => 'required'
+            'images.*' => 'required',
         ]);
 
         $gallery = Gallery::create($request->except('images'));
@@ -106,7 +105,7 @@ class GalleryController extends Controller
     public function show(Gallery $gallery)
     {
         Redis::incr($gallery->redisKey());
-        
+
         return view('pages.gallery', compact('gallery'));
     }
 
