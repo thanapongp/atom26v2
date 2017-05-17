@@ -3,7 +3,9 @@
 namespace Atom26\Console\Commands;
 
 use Atom26\Repositories\UserRepository;
+use Atom26\Accounts\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 use QRcode;
 
 class GenerateCards extends Command
@@ -13,13 +15,14 @@ class GenerateCards extends Command
      *
      * @var string
      */
-    protected $signature = 'cards:generate {university}';
+    protected $signature = 'cards:generate {--university=} {--id=}';
+
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Generate ID cards for specified university.';
+    protected $description = 'Generate ID cards for specified university or user.';
 
     /**
      * Instance of UserRepository.
@@ -52,13 +55,21 @@ class GenerateCards extends Command
      */
     public function handle()
     {
-        $this->universityID = $this->argument('university');
+        if ($this->option('id') != null) {
+            $this->info('Fetching attendees by ID(s)...');
+            $users = User::find(explode(',', $this->option('id')));
 
-        $this->info('Fetching attendees from university ID: '. $this->universityID . '...');
+            $this->universityID = 'misc';
 
-        $users = $this->userRepository->getUsersByUniversityID($this->universityID);
+        } elseif ($this->option('university') != null) {
+            $this->universityID = $this->option('university');
 
-        if ($users->count() == 0) {
+            $this->info('Fetching attendees from university ID: '. $this->universityID . '...');
+
+            $users = $this->userRepository->getUsersByUniversityID($this->universityID);
+        }
+
+        if (! isset($users) || $users->count() == 0) {
             $this->info('No record found. No further action is required.');
             return;
         }
@@ -134,10 +145,12 @@ class GenerateCards extends Command
             $colorBlack, $fontfile, $user->fullname()
         );
 
+        $typename = $this->userHasSpecialTypeName($user) ?: $user->info->type->name;
+
         imagettftext(
             $card, 32, 0,
-            $this->getXCoordinate($card, 32, $user->info->type->name), 1264,
-            $colorYellow, $fontfile, $user->info->type->name
+            $this->getXCoordinate($card, 32, $typename), 1264,
+            $colorYellow, $fontfile, $typename
         );
 
         imagettftext(
@@ -198,5 +211,18 @@ class GenerateCards extends Command
     private function cardStorageDir()
     {
         return base_path() . '/public/files/card/uni_' . $this->universityID;
+    }
+
+    /**
+     * Check if user has any special type name.
+     *
+     * @param \Atom26\Accounts\User $user
+     * @return mixed
+     */
+    private function userHasSpecialTypeName($user)
+    {
+        $specialType = DB::table('special_types')->where('name', $user->fullname())->get();
+
+        return $specialType->isEmpty() ? false : $specialType->first()->type_name;
     }
 }
