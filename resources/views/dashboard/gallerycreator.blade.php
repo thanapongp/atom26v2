@@ -18,7 +18,7 @@
             {{csrf_field()}}
         </form>
         
-        <label>อัพโหลดรูป (ขนาดไม่เกิน 20 MB ต่อรูป และ ควรใช้รูปความระเอียดสูง)</label>
+        <label>อัพโหลดรูป (ขนาดไม่เกิน 30 MB ต่อรูป และ ควรใช้รูปความระเอียดสูง)</label>
         <form action="{{route('gallery.upload')}}" method="POST" class="dropzone" id="imageDropzone">
             
         </form>
@@ -37,7 +37,7 @@
 Dropzone.options.imageDropzone = {
     acceptedFiles: 'image/*',
     maxThumbnailFilesize: 1,
-    maxFilesize: 20,
+    maxFilesize: 30,
     addRemoveLinks: true,
 
     init: function () {
