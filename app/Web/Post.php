@@ -12,4 +12,9 @@ class Post extends Model
      * @var array
      */
     protected $guarded = ['id',];
+
+    public function photos()
+    {
+        return $this->morphToMany('\Atom26\Web\Photo', 'has_photos');
+    }
 }

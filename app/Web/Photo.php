@@ -12,4 +12,9 @@ class Photo extends Model
      * @var array
      */
     protected $guarded = ['id'];
+
+    public function has_photos()
+    {
+        return $this->morphTo();
+    }
 }

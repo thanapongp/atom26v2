@@ -24,12 +24,13 @@ class Gallery extends Model
     /**
      * Get all photos in this gallery
      * 
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function photos()
     {
-        return $this->hasMany('\Atom26\Web\Photo');
+        return $this->morphMany('\Atom26\Web\Photo', 'has_photos');
     }
+
     /**
      * Get gallery's views count.
      * 
