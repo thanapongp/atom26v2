@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\GenerateCards::class,
         Commands\ExportAttendeesData::class,
+        Commands\ExportAthletes::class,
     ];
 
     /**
