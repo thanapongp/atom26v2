@@ -6,6 +6,7 @@ use Atom26\Web\Photo;
 use Atom26\Web\Gallery;
 use Illuminate\Http\Request;
 use Atom26\Services\ImageService;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redis;
 use Atom26\Http\Controllers\Controller;
 
@@ -35,7 +36,11 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        //
+        $galleries = Cache::remember('allgalleries', 60, function () {
+            return Gallery::latest()->get();
+        });
+
+        return view('pages.allgalleries', compact('galleries'));
     }
 
     public function indexDashboard()
@@ -72,6 +77,9 @@ class GalleryController extends Controller
         collect($request->images)->each(function ($image) use ($gallery) {
             $gallery->photos()->save(new Photo(['path' => $image]));    
         });
+
+        Cache::forget('allgalleries');
+        Cache::forget('home-gallery');
 
         return redirect()->route('gallery.index.dashboard');
     }

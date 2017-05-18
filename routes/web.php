@@ -4,6 +4,9 @@ Route::get('/', 'PagesController@showHomePage')->name('home');
 Route::get('/attendees', 'PagesController@showAllAttendeesPage')->name('attendees.index');
 Route::get('/schedules', 'ScheduleController@showAllSchedulePage')->name('schedules.index');
 
+Route::get('/news', 'Resource\NewsController@index')->name('news.index');
+Route::get('/gallery', 'Resource\GalleryController@index')->name('gallery.index');
+
 Route::get('/news/{post}', 'Resource\NewsController@show')->name('news.show');
 Route::get('/gallery/{gallery}', 'Resource\GalleryController@show')->name('gallery.show');
 

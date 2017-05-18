@@ -4,6 +4,7 @@ namespace Atom26\Http\Controllers\Resource;
 
 use Atom26\Web\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Atom26\Http\Controllers\Controller;
 
 class NewsController extends Controller
@@ -14,6 +15,21 @@ class NewsController extends Controller
     public function __construct()
     {
         $this->middleware('role:editor', ['except' => ['show', 'upload']]);
+    }
+
+    /**
+     * Show all news.
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $news = Cache::tags('allnews')->remember(
+            'page_' . $request->page, 60, function () {
+            return Post::paginate(6);
+        });
+
+        return view('pages.allnews', compact('news'));
     }
 
     /**
@@ -45,6 +61,9 @@ class NewsController extends Controller
             'content' => $request->get('content'),
             'thumbnail' => '/uploads/' . $request->file('thumbnail')->store('news_thumb'),
         ]);
+        
+        Cache::tags('allnews')->flush();
+        Cache::forget('home-news');
 
         return redirect()->route('dashboard.editor');
     }

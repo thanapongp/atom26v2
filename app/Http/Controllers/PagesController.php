@@ -40,7 +40,9 @@ class PagesController extends Controller
             return Post::latest()->limit(3)->get();
         });
 
-        $galleries = Gallery::latest()->limit(5)->get();
+        $galleries = Cache::remember('home-gallery', 60, function () {
+            return Gallery::latest()->limit(5)->get();
+        });
 
         return view('pages.home', compact('news', 'galleries'));
     }
