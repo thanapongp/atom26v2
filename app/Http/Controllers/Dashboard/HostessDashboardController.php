@@ -3,9 +3,11 @@
 namespace Atom26\Http\Controllers\Dashboard;
 
 use Atom26\Accounts\User;
-use Atom26\Repositories\UserRepository;
 use Illuminate\Http\Request;
+use Atom26\Accounts\University;
+use Illuminate\Support\Facades\Cache;
 use Atom26\Http\Controllers\Controller;
+use Atom26\Repositories\UserRepository;
 
 class HostessDashboardController extends Controller
 {
@@ -43,6 +45,26 @@ class HostessDashboardController extends Controller
         });
 
         return view('dashboard.hostessathlete', compact('attendees'));
+    }
+
+    public function showAllUniversities()
+    {
+        abort_unless(current_user()->hasRole('hostess'), 403);
+
+        $universities = Cache::rememberForever('universities', function () {
+            return University::where('id', '!=', 24)->get();
+        });
+
+        return view('dashboard.hostessalluni', compact('universities'));
+    }
+
+    public function showAttendeesByUniversity(University $university)
+    {
+        abort_unless(current_user()->hasRole('hostess'), 403);
+        
+        $attendees = $this->userRepository->getUsersByUniversityID($university->id);
+
+        return view('dashboard.hostessbyuni', compact('attendees', 'university'));
     }
 
     public function showAttendeeInfo(User $user)

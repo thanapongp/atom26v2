@@ -7,7 +7,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{route('dashboard')}}">
             <img src="/img/logo_small.png" height="30"
                  class="d-inline-block align-top" alt="">
             ระบบไตรธาราเกมส์

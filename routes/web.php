@@ -17,7 +17,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
 
     Route::get('/', function () {
         return redirectBasedOnUserRole(current_user());
-    });
+    })->name('dashboard');
 
     Route::get('/admin', 'Dashboard\AdminDashboardController@showAdminDashboard');
 
@@ -42,6 +42,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
         ->name('hostess.attendee');
     Route::get('/hostess/attendees', 'Dashboard\HostessDashboardController@showAllUniversities')
         ->name('hostess.alluni');
+    Route::get('/hostess/attendees/university/{university}', 
+        'Dashboard\HostessDashboardController@showAttendeesByUniversity')
+        ->name('hostess.attendeesuni');
 });
 
 Route::post('/dashboard/editor/news/upload', 'Resource\NewsController@uploadPicture')->name('news.upload');
