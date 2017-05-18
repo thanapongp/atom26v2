@@ -25,9 +25,16 @@
                         </li>
                         <li class="nav-item">
                             <a class="social-icon"
-                               href="https://twitter.com/TritharaUBU">
+                               href="https://twitter.com/TritharaGames">
                                 <i class="fa fa-twitter"
                                    style="color: #42c0fb"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="social-icon"
+                               href="https://instagram.com/_u/tritharagames">
+                                <i class="fa fa-instagram"
+                                   style="color: #c91E53"></i>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -66,9 +73,9 @@
                 <div class="menu-nav">
                     <ul>
                         <li class="nav-item"><a href="{{route('home')}}">หน้าแรก</a></li>
-                        <li class="nav-item"><a href="#">ข่าวสาร</a></li>
-                        <li class="nav-item"><a href="#">ประมวลภาพ</a></li>
-                        <li class="nav-item"><a href="#">ไตรธาราเกมส์</a></li>
+                        <li class="nav-item"><a href="/news">ข่าวสาร</a></li>
+                        <li class="nav-item"><a href="/gallery">ประมวลภาพ</a></li>
+                        <li class="nav-item"><a href="/rules">กติการการแข่งขัน</a></li>
                         <li class="nav-item"><a href="{{route('schedules.index')}}">ตารางการแข่งขัน</a>
                         </li>
                     </ul>
@@ -106,9 +113,9 @@
                     <i class="fa fa-sign-in"></i> Login
                 </a>
             @endif
-            <a class="nav-item nav-link" href="#">ข่าวสาร</a>
-            <a class="nav-item nav-link" href="#">ประมวลภาพ</a>
-            <a class="nav-item nav-link" href="#">ไตรธาราเกมส์</a>
+            <a class="nav-item nav-link" href="/news">ข่าวสาร</a>
+            <a class="nav-item nav-link" href="/gallery">ประมวลภาพ</a>
+            <a class="nav-item nav-link" href="/rules">กติการการแข่งขัน</a>
             <a class="nav-item nav-link" href="{{route('schedules.index')}}">ตารางการแข่งขัน</a>
         </div>
     </div>

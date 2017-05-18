@@ -1,7 +1,7 @@
 <div class="content-container">
     <div class="section-header">
         <div>ติดตามข่าว <span style="color: #FFA02F">"ไตรธาราเกมส์"</span></div>
-        {{-- <div><a href="/news">ดูทั้งหมด</a></div> --}}
+        <div><a href="/news">ดูทั้งหมด</a></div>
     </div>
 
     <div class="hidden-lg-up" id="news-carousel">

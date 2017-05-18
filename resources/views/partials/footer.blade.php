@@ -41,7 +41,7 @@
             <a href="http://www.garena.in.th/" rel="nofollow">
                 <img src="/img/sponsor/7.png">
             </a>
-            <a href="http://www.garena.in.th/" rel="nofollow">
+            <a href="http://www.sponsor.co.th/mainpage.html" rel="nofollow">
                 <img src="/img/sponsor/สปอนเซอร์.jpg">
             </a>
         </div>

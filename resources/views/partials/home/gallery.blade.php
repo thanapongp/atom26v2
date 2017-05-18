@@ -1,7 +1,7 @@
 <div class="content-container">
     <div class="section-header">
         <div>ประมวลภาพ <span style="color: #FFA02F">"ไตรธาราเกมส์"</span></div>
-        {{-- <div><a href="/gallery">ดูทั้งหมด</a></div> --}}
+        <div><a href="/gallery">ดูทั้งหมด</a></div>
     </div>
 
     <div class="row home-gallery hidden-md-down">
