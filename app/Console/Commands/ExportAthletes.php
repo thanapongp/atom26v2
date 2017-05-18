@@ -66,29 +66,91 @@ class ExportAthletes extends Command
                 return;
             }
 
-            $sheet = new Worksheet($spreadsheet, $sport->name);
+            $needSeparateGender = !(collect([6, 7, 9, 10, 12, 13, 14])->contains($sport->id));
 
-            $sheet->setCellValueByColumnAndRow(0, 1, 'ลำดับที่');
-            $sheet->setCellValueByColumnAndRow(1, 1, 'QRCode');
-            $sheet->setCellValueByColumnAndRow(2, 1, 'ชื่อ-สกุล');
-            $sheet->setCellValueByColumnAndRow(3, 1, 'สถาบัน');
+            if ($needSeparateGender) {
+                $this->addAtheleteByGender($sport, $spreadsheet, $athletes);
+            } else {
+                $sheet = new Worksheet($spreadsheet, $sport->name);
 
-            $order = 1;
-            $row = 2;
+                $sheet->setCellValueByColumnAndRow(0, 1, 'ลำดับที่');
+                $sheet->setCellValueByColumnAndRow(1, 1, 'QRCode');
+                $sheet->setCellValueByColumnAndRow(2, 1, 'ชื่อ-สกุล');
+                $sheet->setCellValueByColumnAndRow(3, 1, 'สถาบัน');
 
-            $athletes->each(function ($user) use ($sheet, &$order, &$row){
-                $sheet->setCellValueByColumnAndRow(0, $row, $order);
-                $sheet->setCellValueByColumnAndRow(1, $row, $user->getQRCode());
-                $sheet->setCellValueByColumnAndRow(2, $row, $user->fullname());
-                $sheet->setCellValueByColumnAndRow(3, $row, $user->university()->name);
+                $order = 1;
+                $row = 2;
 
-                $order++;
-                $row++;
-            });
+                $athletes->each(function ($user) use ($sheet, &$order, &$row) {
+                    $sheet->setCellValueByColumnAndRow(0, $row, $order);
+                    $sheet->setCellValueByColumnAndRow(1, $row, $user->getQRCode());
+                    $sheet->setCellValueByColumnAndRow(2, $row, $user->fullname());
+                    $sheet->setCellValueByColumnAndRow(3, $row, $user->university()->name);
 
-            $spreadsheet->addSheet($sheet);
+                    $order++;
+                    $row++;
+                });
+
+                $spreadsheet->addSheet($sheet);
+            }
         });
 
         (new Xlsx($spreadsheet))->save(public_path() . '/files/athlete.xlsx');
+    }
+
+    /**
+     * @param $sport
+     * @param $spreadsheet
+     * @param $athletes
+     */
+    public function addAtheleteByGender($sport, $spreadsheet, $athletes)
+    {
+        $sheet = new Worksheet($spreadsheet, $sport->name . ' ชาย');
+
+        $sheet->setCellValueByColumnAndRow(0, 1, 'ลำดับที่');
+        $sheet->setCellValueByColumnAndRow(1, 1, 'QRCode');
+        $sheet->setCellValueByColumnAndRow(2, 1, 'ชื่อ-สกุล');
+        $sheet->setCellValueByColumnAndRow(3, 1, 'สถาบัน');
+
+        $order = 1;
+        $row = 2;
+
+        $athletes->filter(function ($user) {
+            return $user->info->gender == 'ชาย';
+        })->each(function ($user) use ($sheet, &$order, &$row) {
+            $sheet->setCellValueByColumnAndRow(0, $row, $order);
+            $sheet->setCellValueByColumnAndRow(1, $row, $user->getQRCode());
+            $sheet->setCellValueByColumnAndRow(2, $row, $user->fullname());
+            $sheet->setCellValueByColumnAndRow(3, $row, $user->university()->name);
+
+            $order++;
+            $row++;
+        });
+
+        $spreadsheet->addSheet($sheet);
+
+        $sheet = new Worksheet($spreadsheet, $sport->name . ' หญิง');
+
+        $sheet->setCellValueByColumnAndRow(0, 1, 'ลำดับที่');
+        $sheet->setCellValueByColumnAndRow(1, 1, 'QRCode');
+        $sheet->setCellValueByColumnAndRow(2, 1, 'ชื่อ-สกุล');
+        $sheet->setCellValueByColumnAndRow(3, 1, 'สถาบัน');
+
+        $order = 1;
+        $row = 2;
+
+        $athletes->filter(function ($user) {
+            return $user->info->gender == 'หญิง';
+        })->each(function ($user) use ($sheet, &$order, &$row) {
+            $sheet->setCellValueByColumnAndRow(0, $row, $order);
+            $sheet->setCellValueByColumnAndRow(1, $row, $user->getQRCode());
+            $sheet->setCellValueByColumnAndRow(2, $row, $user->fullname());
+            $sheet->setCellValueByColumnAndRow(3, $row, $user->university()->name);
+
+            $order++;
+            $row++;
+        });
+
+        $spreadsheet->addSheet($sheet);
     }
 }
