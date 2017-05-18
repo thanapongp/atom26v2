@@ -32,6 +32,18 @@ class UserInfo extends Model
     protected $with = ['department', 'university', 'type'];
 
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+        'birthdate'
+    ];
+
+    /**
      * Get the user that belongs to bio
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
