@@ -1,6 +1,11 @@
 <?php
 
 Route::get('/', 'PagesController@showHomePage')->name('home');
+
+Route::get('/rules', function () {
+    return view('pages.rules');
+})->name('rules');
+
 Route::get('/attendees', 'PagesController@showAllAttendeesPage')->name('attendees.index');
 Route::get('/schedules', 'ScheduleController@showAllSchedulePage')->name('schedules.index');
 
