@@ -46,4 +46,17 @@ class UserRepository
             $query->where('university_id', $id);
         })->where('active', true)->get();
     }
+
+    /**
+     * Query users by athlete ID.
+     *
+     * @param $sportID
+     * @return mixed
+     */
+    public function queryUserBySportID($sportID)
+    {
+        return User::whereHas('sports', function ($query) use ($sportID) {
+            $query->where('sport_id', $sportID);
+        })->where('active', true)->get();
+    }
 }
