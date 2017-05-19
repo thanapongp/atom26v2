@@ -23,6 +23,7 @@
                     class="gallery-all-image" 
                     style="
                     background-image: url({{$gallery->photos->first()->path}});
+                    background-position: top;
                     ">
                         <span class="align-self-end">
                             {{$gallery->name}}
