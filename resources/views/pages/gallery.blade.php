@@ -49,8 +49,10 @@
             <div class="row">
                 <a href="{{url($gallery->photos->first()->path)}}" 
                 data-toggle="lightbox" data-gallery="gallery" class="col gallery-image"
-                style="background-image: url({{$gallery->photos->first()->path}})">
-                ></a>
+                style="
+                background-image: url({{$gallery->photos->first()->path}})
+                background-position: top;">
+                </a>
             </div>
             @foreach($gallery->photos->splice(1)->chunk(2) as $chunk)
             <div class="row">
