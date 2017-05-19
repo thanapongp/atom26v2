@@ -14,12 +14,12 @@
             <a href="http://www.muangthai.co.th:1766/" rel="nofollow">
                 <img src="/img/sponsor/logo เมืองไทยประกันชีวิต.png">
             </a>
-        </div>
-
-        <div class="sponsor-list">
             <a href="http://www.majorcineplex.com/movie" rel="nofollow">
                 <img src="/img/sponsor/logo-1478578471.png">
             </a>
+        </div>
+
+        <div class="sponsor-list">
             <a href="https://www.egat.co.th/" rel="nofollow">
                 <img src="/img/sponsor/การไฟฟ้า.png">
             </a>
@@ -29,12 +29,12 @@
             <a href="https://www.facebook.com/TachitScreen/" rel="nofollow">
                 <img src="/img/sponsor/หน้าเพจร้าน.jpg">
             </a>
-        </div>
-
-        <div class="sponsor-list">
             <a href="https://www.facebook.com/ShabuIndy/" rel="nofollow">
                 <img src="/img/sponsor/4.jpg">
             </a>
+        </div>
+
+        <div class="sponsor-list">
             <a href="#" rel="nofollow">
                 <img src="/img/sponsor/6.jpg">
             </a>
@@ -43,6 +43,9 @@
             </a>
             <a href="http://www.sponsor.co.th/mainpage.html" rel="nofollow">
                 <img src="/img/sponsor/สปอนเซอร์.jpg">
+            </a>
+            <a href="https://www.pizza.co.th/" rel="nofollow">
+                <img src="/img/sponsor/The_Pizza_Company.png">
             </a>
         </div>
 
