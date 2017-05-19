@@ -50,7 +50,7 @@
                 <a href="{{url($gallery->photos->first()->path)}}" 
                 data-toggle="lightbox" data-gallery="gallery" class="col gallery-image"
                 style="
-                background-image: url({{$gallery->photos->first()->path}})
+                background-image: url({{$gallery->photos->first()->path}});
                 background-position: top;">
                 </a>
             </div>
