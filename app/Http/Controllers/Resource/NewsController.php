@@ -14,7 +14,7 @@ class NewsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('role:editor', ['except' => ['show', 'upload']]);
+        $this->middleware('role:editor', ['except' => ['index', 'show', 'upload']]);
     }
 
     /**
