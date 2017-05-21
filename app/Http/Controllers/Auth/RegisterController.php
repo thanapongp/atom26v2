@@ -62,6 +62,10 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
+        if (register_status()->value == 0) {
+            return view('auth.register-closed');
+        }
+        
         $universities = University::all();
         $departments = Department::all();
         $sports = Sport::all();
