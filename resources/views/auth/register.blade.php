@@ -235,7 +235,7 @@
             </label>
             <div class="col-4">
                 <select class="form-control{{ ($errors->has('department_id')) ? ' form-control-danger' : '' }}" 
-                name="department_id" required>
+                name="department_id">
                     <option value="">เลือกฝ่าย</option>
                     @foreach($departments as $department)
                     <option value="{{$department->id}}"{{old('department_id') == $department->id ? ' selected' : ''}}>{{$department->name}}</option>
@@ -267,6 +267,9 @@
                 เลือกประเภทกีฬา
             </label>
             <div class="col-6">
+                @if ($errors->has('sportList'))
+                <span class="form-text text-danger">กรุณาเลือกกีฬา</span>
+                @endif
                 @foreach($sports->chunk(2) as $chunk)
                 <div class="row">
                 @foreach($chunk as $sport)

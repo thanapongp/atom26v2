@@ -65,7 +65,7 @@ class RegisterController extends Controller
         if (register_status()->value == 0) {
             return view('auth.register-closed');
         }
-        
+
         $universities = University::all();
         $departments = Department::all();
         $sports = Sport::all();
@@ -83,7 +83,14 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
 
+        if ($request->has('alsoathlete') && ! $request->has('sportList')) {
+            return back()->withInput()->withErrors([
+                'sportList' => 'ต้องเลือกกีฬาที่จะลงแข่ง'
+            ]);
+        }
+
         $this->create($request->all());
+
 
         return redirect($this->redirectPath());
     }
@@ -96,7 +103,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        $validator = Validator::make($data, [
             'gender' => 'required|in:ชาย,หญิง',
             'title' => 'required',
             'firstname' => 'required|max:255',
@@ -108,7 +115,6 @@ class RegisterController extends Controller
             'tel_alt' => 'nullable',
 
             'user_type_id' => 'required|exists:user_types,id',
-            'department_id' => 'nullable|exists:departments,id',
             'university_id' => 'required|exists:universities,id',
             'pic' => 'required|file|image|max:5000',
 
@@ -116,6 +122,12 @@ class RegisterController extends Controller
             'password' => 'required|min:6|max:20|confirmed',
             'email' => 'required|email|max:255|unique:users',
         ]);
+
+        $validator->sometimes('department_id', 'required|exists:departments,id', function ($input) {
+            return in_array($input->user_type_id, ['2', '3', '5']);
+        });
+
+        return $validator;
     }
 
     /**
