@@ -46,6 +46,8 @@ class UserRepository
         if (isset($data['alsoathlete'])) {
             $user->sports()->attach($data['sportList']);
         }
+
+        Cache::forget('attendees-'.$data['university_id']);
     }
 
     /**
@@ -82,6 +84,6 @@ class UserRepository
     {
         return User::whereHas('info', function ($query) use ($id) {
             $query->where('university_id', $id);
-        })->where('active', true)->get();
+        })->get();
     }
 }

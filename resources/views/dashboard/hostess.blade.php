@@ -20,6 +20,19 @@
         <a href="{{route('dashboard.hostess.athlete')}}" class="btn btn-primary float-right mr-2">
             <i class="fa fa-child"></i> ดูรายชื่อนักกีฬา
         </a>
+
+        @if(current_user()->hasRole('hostess'))
+        <form action="{{route('hostess.toggleregisterpage')}}" method="POST" class="d-inline">
+            {{csrf_field()}}
+            @php
+                $status = register_status()->value;
+            @endphp
+            <button class="btn btn-{{$status == 0 ? 'success' : 'danger'}} float-right mr-2" type="submit">
+                <i class="fa fa-power-off"></i>
+                {{$status == 0 ? 'เปิด' : 'ปิด'}}ระบบลงทะเบียน
+            </button>
+        </form>
+        @endif
     </h4>
     <div class="card-block">
         <table class="table table-hover" id="newsTable" cellspacing="0" width="100%">
