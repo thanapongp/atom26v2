@@ -105,3 +105,16 @@ function current_user()
 {
     return auth()->user();
 }
+
+/**
+ * Get the current user instance.
+ * 
+ * @return Mixed
+ */
+function register_status()
+{
+    return DB::table('config')
+        ->select('*')
+        ->where('name', 'register_open')
+        ->first();
+}

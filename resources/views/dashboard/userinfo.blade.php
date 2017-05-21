@@ -48,9 +48,24 @@
         @if(current_user()->hasRole('hostess'))
         <hr>
 
+        @if($user->active)
         <a href="{{$user->idCard()}}" class="btn btn-primary">
             <i class="fa fa-id-card"></i> ดู ID Card
         </a>
+        @else
+        <form action="{{route('hostess.approveuser', ['user' => $user])}}" method="POST" class="d-inline">
+            {{csrf_field()}}
+            <button type="submit" class="btn btn-success">
+                <i class="fa fa-check"></i> ยืนยันข้อมูล
+            </button>
+        </form>
+        <form action="{{route('hostess.deleteuser', ['user' => $user])}}" method="POST" class="d-inline">
+            {{csrf_field()}}
+            <button type="submit" class="btn btn-danger">
+                <i class="fa fa-times"></i> ลบข้อมูล
+            </button>
+        </form>
+        @endif
 
         @endif
     </div>

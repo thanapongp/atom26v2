@@ -27,6 +27,7 @@
             <tr>
                 <th>ชื่อ</th>
                 <th>ประเภท</th>
+                <th>สถานะ</th>
             </tr>
             </thead>
             <tbody>
@@ -43,6 +44,9 @@
                 <td>
                     {{$user->type()->name}}
                 </td>
+                <td>
+                    {!! $user->active ? '<span class="text-success">ยืนยันแล้ว</span>' : '<span class="text-danger">ยังไม่ยืนยัน</span>' !!}
+                </td>
             </tr>
             @endforeach
             </tbody>
@@ -58,6 +62,7 @@
         $(document).ready(function () {
             $('#newsTable').DataTable({
                 "language": {"url" : "//cdn.datatables.net/plug-ins/1.10.12/i18n/Thai.json"},
+                "order": [[ 2, "asc" ]]
             });
         });
     </script>

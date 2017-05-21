@@ -4,6 +4,9 @@ Route::get('/', 'PagesController@showHomePage')->name('home');
 
 Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('auth.register');
 Route::post('/register', 'Auth\RegisterController@register')->name('auth.registerPost');
+Route::get('/register-completed', function () {
+    return view('auth.register-completed');
+});
 
 Route::get('/rules', function () {
     return view('pages.rules');
@@ -56,6 +59,13 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
     Route::get('/hostess/attendees/university/{university}', 
         'Dashboard\HostessDashboardController@showAttendeesByUniversity')
         ->name('hostess.attendeesuni');
+
+    Route::post('/hostess/attendee/{user}/approve', 'Dashboard\HostessDashboardController@approveUser')
+        ->name('hostess.approveuser');
+    Route::post('/hostess/attendee/{user}/delete', 'Dashboard\HostessDashboardController@deleteUser')
+        ->name('hostess.deleteuser');
+    Route::post('/hostess/toggleregisterpage', 'Dashboard\HostessDashboardController@toggleRegistrationPage')
+        ->name('hostess.toggleregisterpage');
 });
 
 Route::post('/dashboard/editor/news/upload', 'Resource\NewsController@uploadPicture')->name('news.upload');

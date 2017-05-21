@@ -71,4 +71,33 @@ class HostessDashboardController extends Controller
     {
         return view('dashboard.userinfo', compact('user'));
     }
+
+    public function approveUser(User $user)
+    {
+        $user->active = true;
+        $user->save();
+
+        // TODO: Refactor this ASAP
+        resolve('\Atom26\Console\Commands\GenerateCards')->generateCard($user);
+
+        return redirect()->back();
+    }
+
+    public function deleteUser(User $user)
+    {
+        $user->delete();
+
+        return redirect('/dashboard/hostess');
+    }
+
+    public function toggleRegistrationPage()
+    {
+        $newStatus = register_status()->value == 0 ? 1 : 0;
+
+        DB::table('config')
+            ->where('name', 'register_open')
+            ->update(['value' => $newStatus]);
+
+        return redirect()->back();
+    }
 }

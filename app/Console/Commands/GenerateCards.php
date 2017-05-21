@@ -105,7 +105,7 @@ class GenerateCards extends Command
     /**
      * @param \Atom26\Accounts\User $user
      */
-    private function generateCard($user)
+    public function generateCard($user)
     {
         try {
             $unprocessedProfilePic = imagecreatefromfile($this->getPicPath($user));
@@ -163,7 +163,7 @@ class GenerateCards extends Command
         imagecopy($card, $qrCode, 675, 811, 0, 0, 290, 290);
         imagecopy($card, $typeImg, 675, 601, 0, 0, 290, 183);
 
-        imagepng($card, $this->cardStorageDir() . '/card_' . $user->getQRCode() . '.png');
+        imagepng($card, $this->cardStorageDir($user->university()->id) . '/card_' . $user->getQRCode() . '.png');
 
         imagedestroy($card);
         imagedestroy($processedProfilePic);
@@ -208,9 +208,9 @@ class GenerateCards extends Command
     /**
      * @return string
      */
-    private function cardStorageDir()
+    private function cardStorageDir($universityID)
     {
-        return base_path() . '/public/files/card/uni_' . $this->universityID;
+        return base_path() . '/public/files/card/uni_' . $universityID;
     }
 
     /**
