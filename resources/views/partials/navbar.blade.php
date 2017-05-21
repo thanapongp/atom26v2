@@ -63,6 +63,10 @@
                                 <i class="fa fa-sign-in"></i> {{auth()->user()->username}}
                             </a>
                             @else
+                            <a href="{{route('auth.register')}}" style="font-size: 15px;">
+                                <i class="fa fa-user"></i> ลงทะเบียน
+                            </a>
+                            |
                             <a href="/login" style="font-size: 15px;">
                                 <i class="fa fa-sign-in"></i> Login
                             </a>

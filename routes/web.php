@@ -2,6 +2,9 @@
 
 Route::get('/', 'PagesController@showHomePage')->name('home');
 
+Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('auth.register');
+Route::post('/register', 'Auth\RegisterController@register')->name('auth.registerPost');
+
 Route::get('/rules', function () {
     return view('pages.rules');
 })->name('rules');

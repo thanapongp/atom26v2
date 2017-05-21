@@ -98,7 +98,7 @@ class GalleryController extends Controller
 
         return $this->imageService->optimize(
             '/uploads/' . $request->file('file')->store('temp'),
-            '/uploads/gallery/', 
+            'uploads/gallery/', 
             50, 
             true
         );

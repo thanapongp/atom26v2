@@ -4,11 +4,49 @@ namespace Atom26\Repositories;
 
 use Atom26\Accounts\User;
 use Illuminate\Http\Request;
+use Atom26\Accounts\UserInfo;
 use Illuminate\Support\Facades\Cache;
 
 class UserRepository
 {
+    /**
+     * @var Amount of minutes in one hour.
+     */
     const ONE_HOUR = 60;
+
+    public function register(array $data)
+    {
+        $user = User::create([
+            'username' => $data['username'],
+            'password' => bcrypt($data['password']),
+            'email' => $data['email'],
+            'active' => false,
+        ]);
+
+        $info = new UserInfo([
+            'title' => $data['title'],
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
+            'citizen_id' => encrypt($data['citizen_id']),
+            'student_id' => $data['student_id'] ?: '',
+            'gender' => $data['gender'],
+            'tel' => $data['tel'],
+            'tel_alt' => $data['tel_alt'] ?: '',
+            'user_type_id' => $data['user_type_id'],
+            'university_id' => $data['university_id'],
+            'department_id' => $data['department_id'],
+            'pic' => resolve('\Atom26\Services\ImageService')->resize(
+                'uploads/' . $data['pic']->store('temp'),
+                'files/user/pic/'
+            ),
+        ]);
+
+        $user->info()->save($info);
+
+        if (isset($data['alsoathlete'])) {
+            $user->sports()->attach($data['sportList']);
+        }
+    }
 
     /**
      * Get all attendees based on requested university.
