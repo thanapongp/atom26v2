@@ -49,6 +49,17 @@ class LoginController extends Controller
     }
 
     /**
+     * Get the needed authorization credentials from the request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    protected function credentials(Request $request)
+    {
+        return array_merge($request->only($this->username(), 'password'), ['active' => true]);
+    }
+
+    /**
      * The user has been authenticated.
      *
      * @param \Illuminate\Http\Request $request
@@ -57,10 +68,6 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        if (! $user->active) {
-            return $this->sendUserIsNotActivatedResponse($request);
-        }
-
         return $this->redirectBasedOnUserRole($user);
     }
 
