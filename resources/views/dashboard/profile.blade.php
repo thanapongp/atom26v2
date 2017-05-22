@@ -34,6 +34,14 @@
              <i class="fa fa-phone"></i> โทรศัพท์: {{$user->info->tel}}
         </p>
 
+        @if($user->internetPass)
+        <h5>รหัสเข้าใช้งานอินเตอร์เน็ต</h5>
+        <p class="mt-2">
+            <i class="fa fa-user"></i> Username: {{$user->internetPass->username}} <br>
+            <i class="fa fa-lock"></i> Password: {{$user->internetPass->password}}
+        </p>
+        @endif
+
         @if($user->isAthlete())
             <h4>รายชื่อกีฬา / กิจกรรมที่ลงแข่ง</h4>
             <ul>

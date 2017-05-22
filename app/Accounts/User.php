@@ -3,6 +3,7 @@
 namespace Atom26\Accounts;
 
 use Atom26\Sports\Sport;
+use Atom26\Web\InternetPass;
 use Illuminate\Notifications\Notifiable;
 use Atom26\Notifications\ResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -60,6 +61,11 @@ class User extends Authenticatable
     public function sports()
     {
         return $this->belongsToMany(Sport::class);
+    }
+
+    public function internetPass()
+    {
+        return $this->hasOne(InternetPass::class);
     }
 
     /**
