@@ -20,6 +20,7 @@ Route::get('/gallery', 'Resource\GalleryController@index')->name('gallery.index'
 
 Route::get('/news/{post}', 'Resource\NewsController@show')->name('news.show');
 Route::get('/gallery/{gallery}', 'Resource\GalleryController@show')->name('gallery.show');
+Route::get('/gallery/{gallery}/pics', 'Resource\GalleryController@allpics')->name('gallery.pics');
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('auth.loginform');
 Route::post('/login', 'Auth\LoginController@login')->name('auth.login');
@@ -45,6 +46,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
     Route::get('/editor/gallery/all', 'Resource\GalleryController@indexDashboard')->name('gallery.index.dashboard');
     Route::get('/editor/gallery/new', 'Resource\GalleryController@create')->name('gallery.new');
     Route::post('/editor/gallery/new', 'Resource\GalleryController@store')->name('gallery.store');
+
+    Route::get('/editor/gallery/edit/{gallery}', 'Resource\GalleryController@edit')->name('gallery.edit');
+    Route::post('/editor/gallery/edit/{gallery}', 'Resource\GalleryController@update')->name('gallery.update');
+    Route::post('/editor/gallery/delete/{gallery}', 'Resource\GalleryController@destroy')->name('gallery.delete');
 
     Route::post('/editor/galler/upload', 'Resource\GalleryController@upload')->name('gallery.upload');
 

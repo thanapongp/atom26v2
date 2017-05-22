@@ -29,7 +29,7 @@
             @foreach($galleries as $gallery)
             <tr>
                 <td>
-                    <a href="#">
+                    <a href="{{route('gallery.edit', ['gallery' => $gallery])}}">
                         {{$gallery->name}}
                     </a>
                 </td>

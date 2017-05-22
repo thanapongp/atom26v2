@@ -14,9 +14,6 @@ class ImageService
      */
     public function optimize($path, $intendedPath, $quality = 50, $deleteOriginal = false)
     {
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
-
         $filename = pathinfo($path)['filename'];
         $extension = pathinfo($path)['extension'];
 

@@ -9,6 +9,7 @@ use Atom26\Services\ImageService;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redis;
 use Atom26\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
@@ -98,7 +99,7 @@ class GalleryController extends Controller
 
         return $this->imageService->optimize(
             '/uploads/' . $request->file('file')->store('temp'),
-            'uploads/gallery/', 
+            '/uploads/gallery/', 
             50, 
             true
         );
@@ -118,6 +119,22 @@ class GalleryController extends Controller
     }
 
     /**
+     * Fetch all pictures in gallery.
+     * 
+     * @param  \Atom26\Web\Gallery $gallery
+     * @return JSON
+     */
+    public function allpics(Gallery $gallery)
+    {
+        return $gallery->photos->pluck('path')->map(function ($url) {
+            return collect([
+                'url' => $url, 
+                'size' => Storage::size(str_replace('/uploads', '', $url))
+            ]);
+        });
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \Atom26\Gallery  $gallery
@@ -125,7 +142,7 @@ class GalleryController extends Controller
      */
     public function edit(Gallery $gallery)
     {
-        //
+        return view('dashboard.galleryeditor', compact('gallery'));
     }
 
     /**
@@ -137,7 +154,26 @@ class GalleryController extends Controller
      */
     public function update(Request $request, Gallery $gallery)
     {
-        //
+        $gallery->name = $request->name;
+
+        if ($request->has('images')) {
+            collect($request->images)->each(function ($image) use ($gallery) {
+                $gallery->photos()->save(new Photo(['path' => $image]));    
+            });
+        }
+
+        if ($request->has('delimages')) {
+            collect($request->delimages)->each(function ($image) use ($gallery) {
+                $gallery->photos()->where('path', $image)->delete();    
+            });
+        }
+
+        $gallery->save();
+
+        Cache::forget('allgalleries');
+        Cache::forget('home-gallery');
+
+        return redirect()->route('gallery.index.dashboard');
     }
 
     /**
@@ -148,6 +184,14 @@ class GalleryController extends Controller
      */
     public function destroy(Gallery $gallery)
     {
-        //
+        Redis::del($gallery->redisKey());
+
+        $gallery->photos()->delete();
+        $gallery->delete();
+
+        Cache::forget('allgalleries');
+        Cache::forget('home-gallery');
+
+        return redirect()->route('gallery.index.dashboard');
     }
 }
