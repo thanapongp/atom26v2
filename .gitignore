@@ -4,6 +4,7 @@
 /public/files
 /public/uploads
 /storage/*.key
+/resources/images/temp_qr.png
 /vendor
 /.idea
 Homestead.json
