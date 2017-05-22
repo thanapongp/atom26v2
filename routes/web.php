@@ -2,6 +2,23 @@
 
 Route::get('/', 'PagesController@showHomePage')->name('home');
 
+Route::get('/select2', function () {
+    $universities = \Atom26\Accounts\University::all();
+    return view('select2', compact('universities'));
+});
+
+Route::get('/api/athlete', function (\Illuminate\Http\Request $request) {
+    // return \Atom26\Accounts\User::whereHas('info.university', function ($query) use ($request)  {
+    //     return $query->where('id', $request->uni_id);
+    // })->has('sports')->get()->map(function ($user) {
+    //     return collect(['id' => $user->id, 'name' => $user->fullname()]);
+    // });
+
+    return \Atom26\Accounts\User::whereHas('info.university', function ($query) use ($request)  {
+        return $query->where('id', '!=', '22');
+    })->where('active', true)->toSql();
+});
+
 Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('auth.register');
 Route::post('/register', 'Auth\RegisterController@register')->name('auth.registerPost');
 Route::get('/register-completed', function () {
