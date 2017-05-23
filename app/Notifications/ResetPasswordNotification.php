@@ -56,7 +56,6 @@ class ResetPasswordNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        dd($this->token);
         return (new MailMessage)
             ->greeting('สวัสดีค่ะคุณ ' . $this->user->info->firstname)
             ->line('คุณได้รับ E-mail ฉบับนี้เนื่องจากคุณได้ทำการร้องขอให้รีเซ็ต Password')
