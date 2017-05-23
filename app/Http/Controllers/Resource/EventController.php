@@ -1,9 +1,11 @@
 <?php
 
-namespace Atom26\Http\Controllers;
+namespace Atom26\Http\Controllers\Resource;
 
+use Atom26\Accounts\University;
 use Atom26\Web\Event;
 use Illuminate\Http\Request;
+use Atom26\Http\Controllers\Controller;
 
 class EventController extends Controller
 {
@@ -18,13 +20,20 @@ class EventController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a listing of the resource in the dashboard.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function indexDashboard()
     {
-        //
+        return view('dashboard.sport.index');
+    }
+
+    public function showAthleticForm()
+    {
+        $universities = University::all();
+
+        return view('dashboard.sport.athletic', compact('universities'));
     }
 
     /**

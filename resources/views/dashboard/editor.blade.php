@@ -15,6 +15,9 @@
         <a href="{{route('gallery.index.dashboard')}}" class="btn btn-success float-right mr-2">
             <i class="fa fa-picture-o"></i> จัดการอัลบัม
         </a>
+        <a href="{{route('event.index.dashboard')}}" class="btn btn-success float-right mr-2">
+            <i class="fa fa-futbol-o"></i> จัดการ Scoreboard
+        </a>
     </h4>
     <div class="card-block">
         <table class="table table-hover" id="newsTable" cellspacing="0" width="100%">
