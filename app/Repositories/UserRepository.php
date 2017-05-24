@@ -86,4 +86,22 @@ class UserRepository
             $query->where('university_id', $id);
         })->get();
     }
+
+    /**
+     * Get all athletes by University ID and Sport ID.
+     * 
+     * @param  $universityID
+     * @param  $sportID
+     * @return \Illuminate\Support\Collection
+     */
+    public function getAthletes($universityID, $sportID)
+    {
+        return User::whereHas('info.university', function ($query) use ($universityID)  {
+            return $query->where('id', $universityID);
+        })->whereHas('sports', function ($query) use ($sportID)  {
+            return $query->where('sport_id', $sportID);
+        })->get()->map(function ($user) {
+            return collect(['id' => $user->id, 'name' => $user->fullname()]);
+        });
+    }
 }

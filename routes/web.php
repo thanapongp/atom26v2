@@ -12,15 +12,7 @@ Route::get('/rules', function () {
     return view('pages.rules');
 })->name('rules');
 
-Route::get('/api/athlete', function (\Illuminate\Http\Request $request) {
-     return \Atom26\Accounts\User::whereHas('info.university', function ($query) use ($request)  {
-         return $query->where('id', $request->uni_id);
-     })->whereHas('sports', function ($query) use ($request)  {
-         return $query->where('sport_id', $request->sport_id);
-     })->get()->map(function ($user) {
-         return collect(['id' => $user->id, 'name' => $user->fullname()]);
-     });
-});
+Route::get('/api/athlete', 'ApiController@getAthletes');
 
 Route::get('/attendees', 'PagesController@showAllAttendeesPage')->name('attendees.index');
 Route::get('/schedules', 'ScheduleController@showAllSchedulePage')->name('schedules.index');
