@@ -15,7 +15,9 @@ Route::get('/rules', function () {
 Route::get('/api/athlete', function (\Illuminate\Http\Request $request) {
      return \Atom26\Accounts\User::whereHas('info.university', function ($query) use ($request)  {
          return $query->where('id', $request->uni_id);
-     })->has('sports')->get()->map(function ($user) {
+     })->whereHas('sports', function ($query) use ($request)  {
+         return $query->where('sport_id', $request->sport_id);
+     })->get()->map(function ($user) {
          return collect(['id' => $user->id, 'name' => $user->fullname()]);
      });
 });

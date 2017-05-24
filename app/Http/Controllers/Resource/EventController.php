@@ -2,13 +2,26 @@
 
 namespace Atom26\Http\Controllers\Resource;
 
-use Atom26\Accounts\University;
 use Atom26\Web\Event;
 use Illuminate\Http\Request;
+use Atom26\Accounts\University;
 use Atom26\Http\Controllers\Controller;
+use Atom26\Repositories\EventRepository;
 
 class EventController extends Controller
 {
+    /**
+     * Instance of EventRepository.
+     * 
+     * @var \Atom26\Repositories\EventRepository
+     */
+    protected $eventRepository;
+
+    public function __construct(EventRepository $eventRepository)
+    {
+        $this->eventRepository = $eventRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -44,7 +57,9 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->eventRepository->create($request);
+
+        return back()->with('status', 'เพิ่มผลการแข่งขันกีฬาสำเร็จ');
     }
 
     /**
