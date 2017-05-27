@@ -41,7 +41,7 @@
             </tr>
             <tr>
                 <td><a href="#">เซปักตะกร้อ</a></td>
-                <td>อาคารกิจกรรม</td>
+                <td>สนามตะกร้อกลางแจ้ง ลานบึกบึน</td>
                 <td></td>
                 <td><i class="fa fa-circle"></i></td>
                 <td><i class="fa fa-circle"></i></td>
@@ -52,7 +52,7 @@
             </tr>
             <tr>
                 <td><a href="#">บริดจ์</a></td>
-                <td>อาคารวิจัย คณะวิทย์ฯ</td>
+                <td>2C-06, 2C-05 สำนักคอมพวิเตอร์ฯ</td>
                 <td></td><td></td>
                 <td><i class="fa fa-circle"></i></td>
                 <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
@@ -60,10 +60,10 @@
             </tr>
             <tr>
                 <td><a href="#">หมากกระดาน</a></td>
-                <td>อาคารวิจัย คณะวิทย์ฯ</td>
+                <td>2C-06, 2C-05 สำนักคอมพวิเตอร์ฯ</td>
                 <td></td><td></td>
                 <td><i class="fa fa-circle"></i></td>
-                <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
+                <td><i class="fa fa-circle"></i></td>
                 <td><i class="fa fa-circle"></i></td>
                 <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
                 <td></td>
