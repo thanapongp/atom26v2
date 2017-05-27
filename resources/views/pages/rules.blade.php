@@ -18,8 +18,8 @@
         </p>
 
         <p>
-            <a href="/rules-sport.pdf">ระเบียบการและกติกาการแข่งขันกีฬา (PDF)</a> <br>
-            <a href="/rules-academic.pdf">ระเบียบการและกติกาการแข่งขันวิชาการ (PDF)</a>
+            <a href="/rules-event.pdf">ระเบียบการและกติกาการแข่งขันกิจกรรมสัมพันธ์ (PDF)</a> <br>
+            <a href="/rules-sports.pdf">ะเบียบการและกติกาการแข่งขันกีฬาและวิชาการ (PDF)</a>
         </p>
     </div>
 

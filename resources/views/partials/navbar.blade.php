@@ -79,7 +79,7 @@
                         <li class="nav-item"><a href="{{route('home')}}">หน้าแรก</a></li>
                         <li class="nav-item"><a href="/news">ข่าวสาร</a></li>
                         <li class="nav-item"><a href="/gallery">ประมวลภาพ</a></li>
-                        <li class="nav-item"><a href="/rules">กติการการแข่งขัน</a></li>
+                        <li class="nav-item"><a href="/rules">กติกาการแข่งขัน</a></li>
                         <li class="nav-item"><a href="{{route('schedules.index')}}">ตารางการแข่งขัน</a>
                         </li>
                     </ul>
@@ -119,7 +119,7 @@
             @endif
             <a class="nav-item nav-link" href="/news">ข่าวสาร</a>
             <a class="nav-item nav-link" href="/gallery">ประมวลภาพ</a>
-            <a class="nav-item nav-link" href="/rules">กติการการแข่งขัน</a>
+            <a class="nav-item nav-link" href="/rules">กติกาการแข่งขัน</a>
             <a class="nav-item nav-link" href="{{route('schedules.index')}}">ตารางการแข่งขัน</a>
         </div>
     </div>
