@@ -42,11 +42,28 @@ class EventController extends Controller
         return view('dashboard.sport.index');
     }
 
+    /**
+     * Show form for adding athletic score.
+     * 
+     * @return \Illuminate\Http\Response
+     */
     public function showAthleticForm()
     {
         $universities = University::all();
 
         return view('dashboard.sport.athletic', compact('universities'));
+    }
+
+    /**
+     * Show form for adding pethong form.
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function showPethongForm()
+    {
+        $universities = University::all();
+
+        return view('dashboard.sport.pethong', compact('universities'));
     }
 
     /**
