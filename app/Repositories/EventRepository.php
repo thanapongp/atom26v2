@@ -146,12 +146,49 @@ class EventRepository
     }
 
     /**
-     * Create football event record.
+     * Create volleyball event record.
      * 
      * @param \Illuminate\Http\Request $request
      * @param \Atom26\Web\Event   $event
      */
     protected function CreateVolleyballEvent(Request $request, Event $event)
+    {
+        $i = 1;
+
+        collect($request->university_id)->each(function ($university_id) use (
+            $request, $event, &$i
+        ) {
+            $data = [
+                'university_id' => $university_id,
+                'score' => $request->score[$i],
+            ];
+
+            if ($request->is_winner == $i) {
+                $data = array_merge($data, ['is_winner' => true]);
+            }
+
+            $event->results()->save(new EventResult($data));
+
+            $result = EventResult::find(DB::getPdo()->lastInsertId());
+
+            foreach ($request->set[$i] as $set => $score) {
+                $result->sets()->save(new EventSet([
+                    'set' => $set,
+                    'score' => $score,
+                ]));
+            }
+
+            $i++;  
+        });
+    }
+
+    /**
+     * Create takraw event record.
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @param \Atom26\Web\Event   $event
+     */
+    protected function CreateTakrawEvent(Request $request, Event $event)
     {
         $i = 1;
 
