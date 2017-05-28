@@ -31,7 +31,7 @@
                 <td></td><td></td><td></td><td></td><td></td><td></td>
             </tr>
             <tr>
-                <td><a href="#">กรีฑา</a></td>
+                <td><a href="/events/show?sport=1">กรีฑา</a></td>
                 <td>สนามกีฬากลาง ม.อุบลฯ</td>
                 <td></td><td></td>
                 <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
@@ -40,7 +40,7 @@
                 <td></td><td></td>
             </tr>
             <tr>
-                <td><a href="#">เซปักตะกร้อ</a></td>
+                <td><a href="/events/show?sport=11">เซปักตะกร้อ</a></td>
                 <td>สนามตะกร้อกลางแจ้ง ลานบึกบึน</td>
                 <td></td>
                 <td><i class="fa fa-circle"></i></td>
@@ -51,7 +51,7 @@
                 <td></td>
             </tr>
             <tr>
-                <td><a href="#">บริดจ์</a></td>
+                <td><a href="/events/show?sport=6">บริดจ์</a></td>
                 <td>2C-06, 2C-05 สำนักคอมพวิเตอร์ฯ</td>
                 <td></td><td></td>
                 <td><i class="fa fa-circle"></i></td>
@@ -59,7 +59,7 @@
                 <td></td><td></td><td></td>
             </tr>
             <tr>
-                <td><a href="#">หมากกระดาน</a></td>
+                <td><a href="/events/show?sport=7">หมากกระดาน</a></td>
                 <td>2C-06, 2C-05 สำนักคอมพวิเตอร์ฯ</td>
                 <td></td><td></td>
                 <td><i class="fa fa-circle"></i></td>
@@ -69,7 +69,7 @@
                 <td></td>
             </tr>
             <tr>
-                <td><a href="#">บาสเก็ตบอล</a></td>
+                <td><a href="/events/show?sport=2">บาสเก็ตบอล</a></td>
                 <td>ศูนย์กีฬาเอนกประสงค์</td>
                 <td></td>
                 <td><i class="fa fa-circle"></i></td>
@@ -80,7 +80,7 @@
                 <td></td>
             </tr>
             <tr>
-                <td><a href="#">เปตอง</a></td>
+                <td><a href="/events/show?sport=5">เปตอง</a></td>
                 <td>สนามเปตอง ม.อุบลฯ</td>
                 <td></td><td></td>
                 <td><i class="fa fa-circle"></i></td>
@@ -90,7 +90,7 @@
                 <td></td>
             </tr>
             <tr>
-                <td><a href="#">ฟุตซอล</a></td>
+                <td><a href="/events/show?sport=8">ฟุตซอล</a></td>
                 <td>สนามฟุตซอล ม.อุบลฯ</td>
                 <td></td><td></td>
                 <td><i class="fa fa-circle"></i></td>
@@ -100,7 +100,7 @@
                 <td></td>
             </tr>
             <tr>
-                <td><a href="#">ฟุตบอล</a></td>
+                <td><a href="/events/show?sport=3">ฟุตบอล</a></td>
                 <td>สนามข้างแฟลตบุคลากร</td>
                 <td></td>
                 <td><i class="fa fa-circle"></i></td>
@@ -111,7 +111,7 @@
                 <td></td>
             </tr>
             <tr>
-                <td><a href="#">วอลเลย์บอล</a></td>
+                <td><a href="/events/show?sport=4">วอลเลย์บอล</a></td>
                 <td>โรงพละ ม.อุบลฯ</td>
                 <td></td>
                 <td><i class="fa fa-circle"></i></td>
@@ -122,7 +122,7 @@
                 <td></td>
             </tr>
             <tr>
-                <td><a href="#">E-Sport</a></td>
+                <td><a href="/events/show?sport=9">E-Sport</a></td>
                 <td>อาคารวิจัย คณะวิทย์ฯ</td>
                 <td></td>
                 <td><i class="fa fa-circle"></i></td>
