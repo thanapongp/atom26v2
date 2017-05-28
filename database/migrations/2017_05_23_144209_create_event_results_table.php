@@ -13,6 +13,10 @@ class CreateEventResultsTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('event_results')) {
+            return;
+        }
+
         Schema::create('event_results', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('event_id')->unsigned();

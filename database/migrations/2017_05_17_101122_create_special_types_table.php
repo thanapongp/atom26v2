@@ -13,6 +13,10 @@ class CreateSpecialTypesTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('special_types')) {
+            return;
+        }
+        
         Schema::create('special_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');

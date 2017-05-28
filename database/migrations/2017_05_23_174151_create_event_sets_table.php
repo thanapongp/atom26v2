@@ -13,6 +13,10 @@ class CreateEventSetsTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('event_sets')) {
+            return;
+        }
+
         Schema::create('event_sets', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('set')->unsigned();

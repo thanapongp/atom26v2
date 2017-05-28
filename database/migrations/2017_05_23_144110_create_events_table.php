@@ -13,6 +13,10 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('events')) {
+            return;
+        }
+
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
