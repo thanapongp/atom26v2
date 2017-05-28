@@ -25,6 +25,7 @@ Route::get('/gallery/{gallery}', 'Resource\GalleryController@show')->name('galle
 Route::get('/gallery/{gallery}/pics', 'Resource\GalleryController@allpics')->name('gallery.pics');
 
 Route::get('/events', 'Resource\EventController@index')->name('events.index');
+Route::get('/events/show', 'Resource\EventController@show')->name('events.show');
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('auth.loginform');
 Route::post('/login', 'Auth\LoginController@login')->name('auth.login');

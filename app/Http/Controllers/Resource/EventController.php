@@ -3,6 +3,7 @@
 namespace Atom26\Http\Controllers\Resource;
 
 use Atom26\Web\Event;
+use Atom26\Sports\Sport;
 use Illuminate\Http\Request;
 use Atom26\Accounts\University;
 use Atom26\Http\Controllers\Controller;
@@ -29,7 +30,11 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $sports = Sport::all()->reject(function ($sport) {
+           return collect([12, 13, 14])->contains($sport->id);
+        });
+
+        return view('pages.event.index', compact('sports'));
     }
 
     /**
