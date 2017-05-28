@@ -111,6 +111,17 @@
                 <td></td>
             </tr>
             <tr>
+                <td><a href="#">วอลเลย์บอล</a></td>
+                <td>โรงพละ ม.อุบลฯ</td>
+                <td></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-circle"></i></td>
+                <td><i class="fa fa-trophy fa-2x text-warning"></i></td>
+                <td></td>
+            </tr>
+            <tr>
                 <td><a href="#">E-Sport</a></td>
                 <td>อาคารวิจัย คณะวิทย์ฯ</td>
                 <td></td>
