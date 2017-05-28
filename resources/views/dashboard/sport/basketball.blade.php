@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="card dashboard-card">
-    <h4 class="card-title">เพิ่มกีฬาเปตอง <small><a href="{{route('event.index.dashboard')}}">กลับ</a></small></h4>
+    <h4 class="card-title">เพิ่มกีฬาบาสเก็ตบอล <small><a href="{{route('event.index.dashboard')}}">กลับ</a></small></h4>
     <div class="card-block">
         @if(session('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -25,7 +25,7 @@
             <div class="form-group">
                 <label for="name">ชื่อการแข่งขัน</label>
                 <input name="name" type="text" class="form-control" style="width: 50%;">
-                <small class="form-text text-muted">เช่น "เปตองชายเดี่ยวสาย A รอบแรก"</small>
+                <small class="form-text text-muted">เช่น "บาสเก็ตบอลหญิงรอบแรก"</small>
             </div>
 
             <div class="form-group" style="width: 50%;">
@@ -40,11 +40,11 @@
 
             <div class="form-group" style="width: 50%;">
                 <label for="venue">สถานที่แข่งขัน</label>
-                <input name="venue" type="text" value="สนามเปตอง ม.อุบลฯ" class="form-control" readonly>
+                <input name="venue" type="text" value="ศูนย์กีฬาเอนกประสงค์" class="form-control" readonly>
             </div>
 
-            <input type="hidden" name="sport_id" value="5">
-            <input type="hidden" name="label" value="pethong">
+            <input type="hidden" name="sport_id" value="2">
+            <input type="hidden" name="label" value="basketball">
 
             {{--type--}}
             <fieldset class="form-group">
@@ -67,26 +67,18 @@
 
             <table class="table w-100">
                 <thead>
-                    <th>ชื่อทีม/ผู้เข้าแข่งขัน</th>
+                    <th>ชื่อทีม</th>
                     <th>คะแนนรวม</th>
                     <th>ชนะ ?</th>
                 </thead>
                 <tbody>
                     <tr>
                     <td>
-                        <label class="d-block">สถาบัน</label>
                         <select name="university_id[1]" class="form-control">
                             @foreach($universities as $university)
-                            <option value="{{$university->id}}">{{$university->name}}</option>
+                            <option value="{{$university->id}}">({{$university->code}}) {{$university->name}}</option>
                             @endforeach
                         </select>
-
-                        <div class="athletic-container">
-                            <label class="mt-2 d-block">ชื่อผู้เข้าแข่งขัน</label>
-                            <select name="athlete_id[1]" class="form-control d-inline-block">
-                            </select>
-                            <i class="fa fa-spinner fa-pulse fa-fw loading-icon"></i>
-                        </div>
                     </td>
                     <td>
                         <input name="score[1]" type="text" class="form-control" style="width: 100px">
@@ -98,19 +90,11 @@
 
                     <tr>
                     <td>
-                        <label class="d-block">สถาบัน</label>
                         <select name="university_id[2]" class="form-control">
                             @foreach($universities as $university)
-                            <option value="{{$university->id}}">{{$university->name}}</option>
+                            <option value="{{$university->id}}">({{$university->code}}) {{$university->name}}</option>
                             @endforeach
                         </select>
-
-                        <div class="athletic-container">
-                            <label class="mt-2 d-block">ชื่อผู้เข้าแข่งขัน</label>
-                            <select name="athlete_id[2]" class="form-control d-inline-block">
-                            </select>
-                            <i class="fa fa-spinner fa-pulse fa-fw loading-icon"></i>
-                        </div>
                     </td>
                     <td>
                         <input name="score[2]" type="text" class="form-control" style="width: 100px">
