@@ -72,7 +72,7 @@
                 <label>สถาบัน</label>
                 <select name="university_id[{{$i}}]" class="form-control">
                     @foreach($universities as $university)
-                    <option value="{{$university->id}}">{{$university->name}}</option>
+                    <option value="{{$university->id}}">({{$university->code}}) {{$university->name}}</option>
                     @endforeach
                 </select>
 
