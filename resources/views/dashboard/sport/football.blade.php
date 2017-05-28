@@ -24,14 +24,14 @@
             {{--name--}}
             <div class="form-group">
                 <label for="name">ชื่อการแข่งขัน</label>
-                <input name="name" type="text" class="form-control" style="width: 50%;">
+                <input name="name" type="text" value="{{old('name')}}" class="form-control" style="width: 50%;">
                 <small class="form-text text-muted">เช่น "ฟุตบอลชายสาย A รอบแรก"</small>
             </div>
 
             <div class="form-group" style="width: 50%;">
                 <label for="date">วันเวลาการแข่งขัน</label>
                 <div class='input-group date' id='date'>
-                    <input type='text' name="date" class="form-control"/>
+                    <input type='text' name="date" value="{{old('date')}}" class="form-control"/>
                     <span class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </span>

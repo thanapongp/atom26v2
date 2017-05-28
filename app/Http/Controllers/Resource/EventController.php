@@ -143,7 +143,7 @@ class EventController extends Controller
     {
         $this->eventRepository->create($request);
 
-        return back()->with('status', 'เพิ่มผลการแข่งขันกีฬาสำเร็จ');
+        return back()->with('status', 'เพิ่มผลการแข่งขันกีฬาสำเร็จ')->withInput();
     }
 
     /**
