@@ -25,7 +25,7 @@
         <div class="card mt-3">
             <div class="card-header" role="tab" id="heading{{$event->id}}">
                 <a href="#collapse{{$event->id}}" data-toggle="collapse"
-                data-parent="date{{$date}}" aria-controls="collapse{{$event->id}}">
+                data-parent="#date{{$date}}" aria-controls="collapse{{$event->id}}">
                     ({{Date::parse($event->date)->format('H:i')}}) {{$event->name}}
                 </a>
             </div>
