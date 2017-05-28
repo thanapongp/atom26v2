@@ -24,6 +24,8 @@ Route::get('/news/{post}', 'Resource\NewsController@show')->name('news.show');
 Route::get('/gallery/{gallery}', 'Resource\GalleryController@show')->name('gallery.show');
 Route::get('/gallery/{gallery}/pics', 'Resource\GalleryController@allpics')->name('gallery.pics');
 
+Route::get('/events', 'Resource\EventController@index')->name('events.index');
+
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('auth.loginform');
 Route::post('/login', 'Auth\LoginController@login')->name('auth.login');
 Route::post('/logout', 'Auth\LoginController@logout')->name('auth.logout');

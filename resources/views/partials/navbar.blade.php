@@ -77,10 +77,10 @@
                 <div class="menu-nav">
                     <ul>
                         <li class="nav-item"><a href="{{route('home')}}">หน้าแรก</a></li>
-                        <li class="nav-item"><a href="/news">ข่าวสาร</a></li>
                         <li class="nav-item"><a href="/gallery">ประมวลภาพ</a></li>
                         <li class="nav-item"><a href="/rules">กติกาการแข่งขัน</a></li>
                         <li class="nav-item"><a href="{{route('schedules.index')}}">ตารางการแข่งขัน</a>
+                        <li class="nav-item"><a href="{{route('events.index')}}">ผลการแข่งขัน</a>
                         </li>
                     </ul>
                 </div>
@@ -121,6 +121,7 @@
             <a class="nav-item nav-link" href="/gallery">ประมวลภาพ</a>
             <a class="nav-item nav-link" href="/rules">กติกาการแข่งขัน</a>
             <a class="nav-item nav-link" href="{{route('schedules.index')}}">ตารางการแข่งขัน</a>
+            <a class="nav-item nav-link" href="{{route('events.index')}}">ผลการแข่งขัน</a>
         </div>
     </div>
 </div>

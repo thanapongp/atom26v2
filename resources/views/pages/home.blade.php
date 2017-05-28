@@ -8,9 +8,7 @@
 
 @section('content')
 	@include('partials.home.carousel')
-
-	@include('partials.home.countdown')
-
+	
 	@include('partials.home.news')
 	
 	@if($galleries->count() > 0)
