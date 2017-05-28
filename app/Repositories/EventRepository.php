@@ -87,12 +87,41 @@ class EventRepository
     }
 
     /**
-     * Create pathong event record.
+     * Create basketball event record.
      * 
      * @param \Illuminate\Http\Request $request
      * @param \Atom26\Web\Event   $event
      */
     protected function CreateBasketBallEvent(Request $request, Event $event)
+    {
+        $i = 1;
+
+        collect($request->university_id)->each(function ($university_id) use (
+            $request, $event, &$i
+        ) {
+            $data = [
+                'university_id' => $university_id,
+                'athlete_id' => $request->athlete_id[$i],
+                'score' => $request->score[$i],
+            ];
+
+            if ($request->is_winner == $i) {
+                $data = array_merge($data, ['is_winner' => true]);
+            }
+
+            $event->results()->save(new EventResult($data));
+
+            $i++;  
+        });
+    }
+
+    /**
+     * Create football event record.
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @param \Atom26\Web\Event   $event
+     */
+    protected function CreateFootBallEvent(Request $request, Event $event)
     {
         $i = 1;
 
