@@ -159,8 +159,16 @@ class EventController extends Controller
         $events = $sport->events()->orderBy('date', 'asc')->get()->groupBy(function ($item) {
             return explode(" ", $item->date)[0];
         });
-        
-        return view('pages.event.showAthlete', compact('sport', 'events'));
+
+        if ($request->sport == 1) {
+            return view('pages.event.showAthlete', compact('events'));
+        }
+
+        if (in_array($request->sport, [2, 3, 5, 6, 7, 8, 9, 10, 11])) {
+            return view('pages.event.showTeamBased', compact('sport', 'events'));
+        }
+
+        return view('pages.event.showSetBased', compact('sport', 'events'));
     }
 
     /**
