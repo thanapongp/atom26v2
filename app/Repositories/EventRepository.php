@@ -197,7 +197,6 @@ class EventRepository
         ) {
             $data = [
                 'university_id' => $university_id,
-                'athlete_id' => $request->athlete_id[$i],
                 'score' => $request->score[$i],
             ];
 
@@ -206,6 +205,15 @@ class EventRepository
             }
 
             $event->results()->save(new EventResult($data));
+
+            $result = EventResult::find(DB::getPdo()->lastInsertId());
+
+            foreach ($request->set[$i] as $set => $score) {
+                $result->sets()->save(new EventSet([
+                    'set' => $set,
+                    'score' => $score,
+                ]));
+            }
 
             $i++;  
         });

@@ -49,7 +49,9 @@
             <table class="table w-100">
                 <thead>
                     <th>ชื่อทีม</th>
-                    <th>คะแนนรวม</th>
+                    <th>เซ็ตที่ 1</th>
+                    <th>เซ็ตที่ 2</th>
+                    <th>รวม</th>
                     <th>ชนะ ?</th>
                 </thead>
                 <tbody>
@@ -61,6 +63,12 @@
                             <option value="{{$university->id}}">({{$university->code}}) {{$university->name}}</option>
                             @endforeach
                         </select>
+                    </td>
+                    <td>
+                        <input name="set[{{$i}}][1]" type="text" class="form-control" style="width: 100px">
+                    </td>
+                    <td>
+                        <input name="set[{{$i}}][2]" type="text" class="form-control" style="width: 100px">
                     </td>
                     <td>
                         <input name="score[{{$i}}]" type="text" class="form-control" style="width: 100px">
