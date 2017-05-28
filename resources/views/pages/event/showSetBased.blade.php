@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title', 'ผลการแข่งขันกรีฑา')
+@section('title', "ผลการแข่งขัน{$sport->name}")
 
 @section('content')
 <div class="content-container">
