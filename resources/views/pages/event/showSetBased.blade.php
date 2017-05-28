@@ -36,8 +36,6 @@
                 <table class="table table-stripped">
                     <thead>
                         <th>{{$event->results[0]->athlete ? 'ชื่อนักกีฬา' : 'ชื่อสถาบัน'}}</th>
-                        <th>เซ็ตที่ 1</th>
-                        <th>เซ็ตที่ 2</th>
                         <th>คะแนนรวม</th>
                     </thead>
                     <tbody>
@@ -47,16 +45,6 @@
                             <img src="/img/logo-uni/logo{{$result->university->code}}.png">
                             {{$result->athlete ? "({$result->university->code}) " . $result->athlete->fullname() 
                             : $result->university->name}}
-                        </td>
-                        <td>
-                            @if($result->sets[0]->score != 'W')
-                            {{$result->sets[0]->score}}
-                            @endif
-                        </td>
-                        <td>
-                            @if($result->sets[1]->score != 'W')
-                            {{$result->sets[1]->score}}
-                            @endif
                         </td>
                         <td>
                             @if(is_null($result->score) && $result->is_winner)
