@@ -14,13 +14,13 @@
             <tr>
                 <th>กีฬา / กิจกรรม <br> <span class="hidden-md-down">(คลิกเพื่อดูผลการแข่งขัน)</span></th>
                 <th>สถานที่</th>
-                <th>อา <br> 27 พ.ค.</th>
-                <th>จ <br> 28 พ.ค.</th>
-                <th>อ <br> 29 พ.ค.</th>
-                <th>พ <br> 30 พ.ค.</th>
-                <th>พฤ <br> 31 พ.ค.</th>
-                <th>ศ <br> 1 มิ.ย.</th>
-                <th>ส <br> 2 มิ.ย.</th>
+                <th>ส <br> 27 พ.ค.</th>
+                <th>อา <br> 28 พ.ค.</th>
+                <th>จ <br> 29 พ.ค.</th>
+                <th>อ <br> 30 พ.ค.</th>
+                <th>พ <br> 31 พ.ค.</th>
+                <th>พฤ <br> 1 มิ.ย.</th>
+                <th>ศ <br> 2 มิ.ย.</th>
             </tr>
             </thead>
             <tbody>
