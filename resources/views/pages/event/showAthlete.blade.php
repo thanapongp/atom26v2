@@ -8,6 +8,10 @@
         <div class="w-100 text-center">ผลการแข่งขัน<span style="color: #FFA02F">กรีฑา</span></div>
     </div>
 
+    @if($events->isEmpty())
+    <h4 class="text-center mt-5">ยังไม่มีผลการแข่งขันสำหรับกีฬาชนิดนี้</h4>
+    @endif
+
     {{Date::setLocale('th')}}
 
     @foreach($events as $date => $events)

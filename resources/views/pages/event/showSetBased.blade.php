@@ -26,7 +26,8 @@
             <div class="card-header" role="tab" id="heading{{$event->id}}">
                 <a href="#collapse{{$event->id}}" data-toggle="collapse"
                 data-parent="#date{{$date}}" aria-controls="collapse{{$event->id}}">
-                    ({{Date::parse($event->date)->format('H:i')}}) {{$event->name}}
+                    ({{Date::parse($event->date)->format('H:i')}}) {{$event->name}} 
+                    ({{$event->results[0]->university->code}} vs. {{$event->results[1]->university->code}})
                 </a>
             </div>
 
