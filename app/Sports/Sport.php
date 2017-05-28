@@ -2,6 +2,7 @@
 
 namespace Atom26\Sports;
 
+use Atom26\Web\Event;
 use Illuminate\Database\Eloquent\Model;
 
 class Sport extends Model
@@ -21,5 +22,10 @@ class Sport extends Model
     public function users()
     {
     	return $this->belongsToMany(User::class);
+    }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
     }
 }

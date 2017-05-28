@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title', 'ตรวจสอบรายชื่อผู้ร่วมงาน')
+@section('title', 'ผลการแข่งขัน')
 
 @section('content')
 <div class="content-container">

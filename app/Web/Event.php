@@ -21,7 +21,7 @@ class Event extends Model
      *
      * @var array
      */
-    protected $with = ['sport', 'results'];
+    protected $with = ['results'];
 
     /**
      * The attributes that should be mutated to dates.

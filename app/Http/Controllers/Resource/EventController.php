@@ -149,12 +149,18 @@ class EventController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \Atom26\Web\Event  $event
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show(Request $request)
     {
-        //
+        $sport = Sport::find($request->sport);
+
+        $events = $sport->events()->orderBy('date', 'asc')->get()->groupBy(function ($item) {
+            return explode(" ", $item->date)[0];
+        });
+        
+        return view('pages.event.showAthlete', compact('sport', 'events'));
     }
 
     /**
