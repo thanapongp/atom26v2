@@ -50,9 +50,11 @@
                             ชนะ
                             @elseif(is_null($result->score) && ! $result->is_winner)
                             แพ้
+                            @elseif($result->score == 'W')
+                            สละสิทธิ์
                             @else
                             {{$result->score}}
-                            @endif                            
+                            @endif                           
                         </td>
                         </tr>
                         @endforeach

@@ -48,19 +48,25 @@
                             : $result->university->name}}
                         </td>
                         <td>
+                            @if($result->sets[0]->score != 'W')
                             {{$result->sets[0]->score}}
+                            @endif
                         </td>
                         <td>
+                            @if($result->sets[1]->score != 'W')
                             {{$result->sets[1]->score}}
+                            @endif
                         </td>
                         <td>
                             @if(is_null($result->score) && $result->is_winner)
                             ชนะ
                             @elseif(is_null($result->score) && ! $result->is_winner)
                             แพ้
+                            @elseif($result->score == 'W')
+                            สละสิทธิ์
                             @else
                             {{$result->score}}
-                            @endif                            
+                            @endif                        
                         </td>
                         </tr>
                         @endforeach
