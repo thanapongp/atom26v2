@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="card dashboard-card">
-    <h4 class="card-title">เพิ่มกีฬากรีฑา <small><a href="{{route('event.index.dashboard')}}">กลับ</a></small></h4>
+    <h4 class="card-title">เพิ่มกีฬาเปตอง <small><a href="{{route('event.index.dashboard')}}">กลับ</a></small></h4>
     <div class="card-block">
         @if(session('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -25,7 +25,7 @@
             <div class="form-group">
                 <label for="name">ชื่อการแข่งขัน</label>
                 <input name="name" type="text" class="form-control" style="width: 50%;">
-                <small class="form-text text-muted">เช่น "วิ่ง 100ม. ชาย รอบชิงชนะเลิศ"</small>
+                <small class="form-text text-muted">เช่น "เปตองชายเดี่ยวสาย A รอบแรก"</small>
             </div>
 
             <div class="form-group" style="width: 50%;">
@@ -40,11 +40,11 @@
 
             <div class="form-group" style="width: 50%;">
                 <label for="venue">สถานที่แข่งขัน</label>
-                <input name="venue" type="text" value="สนามกีฬากลาง ม.อุบลฯ" class="form-control" readonly>
+                <input name="venue" type="text" value="สนามเปตอง ม.อุบลฯ" class="form-control" readonly>
             </div>
 
-            <input type="hidden" name="sport_id" value="1">
-            <input type="hidden" name="label" value="athletics">
+            <input type="hidden" name="sport_id" value="5">
+            <input type="hidden" name="label" value="pethong">
 
             {{--type--}}
             <fieldset class="form-group">
@@ -60,34 +60,67 @@
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input"
                                name="optionType" value="team">
-                        ผลัด
+                        ทีม
                     </label>
                 </div>
             </fieldset>
 
-            @for($i = 1; $i <= 8; $i++)
-            <div class="form-group" style="width: 50%;">
-                <legend>ลำดับที่ {{$i}}</legend>
+            <table class="table">
+                <thead>
+                    <th>ชื่อทีม/ผู้เข้าแข่งขัน</th>
+                    <th>คะแนนรวม</th>
+                    <th>ชนะ ?</th>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>
+                        <label class="d-block">สถาบัน</label>
+                        <select name="university_id[1]" class="form-control">
+                            @foreach($universities as $university)
+                            <option value="{{$university->id}}">{{$university->name}}</option>
+                            @endforeach
+                        </select>
 
-                <label>สถาบัน</label>
-                <select name="university_id[{{$i}}]" class="form-control">
-                    @foreach($universities as $university)
-                    <option value="{{$university->id}}">{{$university->name}}</option>
-                    @endforeach
-                </select>
+                        <div class="athletic-container">
+                            <label class="mt-2 d-block">ชื่อผู้เข้าแข่งขัน</label>
+                            <select name="athlete_id[1]" class="form-control d-inline-block">
+                            </select>
+                            <i class="fa fa-spinner fa-pulse fa-fw loading-icon"></i>
+                        </div>
+                    </td>
+                    <td>
+                        <input name="score[1]" type="text" class="form-control">
+                    </td>
+                    <td>
+                        <input type="radio" name="is_winner" value="1">
+                    </td>
+                    </tr>
 
-                <div class="athletic-container">
-                    <label class="mt-2">ชื่อผู้เข้าแข่งขัน</label>
-                    <select name="athlete_id[{{$i}}]" class="form-control d-inline-block"></select>
-                    <i class="fa fa-spinner fa-pulse fa-fw loading-icon"></i>
-                </div>
+                    <tr>
+                    <td>
+                        <label class="d-block">สถาบัน</label>
+                        <select name="university_id[2]" class="form-control">
+                            @foreach($universities as $university)
+                            <option value="{{$university->id}}">{{$university->name}}</option>
+                            @endforeach
+                        </select>
 
-                <label class="mt-2">เวลา</label>
-                <input name="time[{{$i}}]" type="text" class="form-control">
-                <small class="form-text text-muted">เช่น "1:23.45" ใส่ DNF ถ้าถูกปรับแพ้ หรือไม่ได้เข้าแข่งขัน</small>
-            </div>
-            <hr>
-            @endfor
+                        <div class="athletic-container">
+                            <label class="mt-2 d-block">ชื่อผู้เข้าแข่งขัน</label>
+                            <select name="athlete_id[2]" class="form-control d-inline-block">
+                            </select>
+                            <i class="fa fa-spinner fa-pulse fa-fw loading-icon"></i>
+                        </div>
+                    </td>
+                    <td>
+                        <input name="score[2]" type="text" class="form-control">
+                    </td>
+                    <td>
+                        <input type="radio" name="is_winner" value="2">
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
             
             {{csrf_field()}}
 
@@ -118,7 +151,9 @@ $('select[name^="athlete_id"]').select2({
     width: '500px'
 });
 
-$('select[name^="university_id"]').select2().on('change', function () {
+$('select[name^="university_id"]').select2({
+    width: '500px'
+}).on('change', function () {
     if ($('input[name="optionType"]:checked').val() !== 'team') {
         fetchAthletes($(this).val(), $(this));
     }

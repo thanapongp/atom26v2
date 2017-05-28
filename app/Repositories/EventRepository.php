@@ -29,19 +29,18 @@ class EventRepository
         }
 
         DB::transaction(function () use ($methodName, $request) {
-            $this->{$methodName}($request);
+            $this->{$methodName}($request, $this->createEventModel($request));
         });
     }
 
-    protected function CreateAthleticsEvent(Request $request)
+    /**
+     * Create atheletic event recored.
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @param \Atom26\Web\Event $event
+     */
+    protected function CreateAthleticsEvent(Request $request, Event $event)
     {
-        $event = Event::create([
-            'name' => $request->name,
-            'venue' => $request->venue,
-            'sport_id' => $request->sport_id,
-            'date' => $this->parseDate($request->date)
-        ]);
-
         $i = 1;
 
         collect($request->university_id)->each(function ($university_id) use (
@@ -56,6 +55,51 @@ class EventRepository
 
             $i++;
         });
+    }
+
+    /**
+     * Create pathong event record.
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @param \Atom26\Web\Event   $event
+     */
+    protected function CreatePethongEvent(Request $request, Event $event)
+    {
+        $i = 1;
+
+        collect($request->university_id)->each(function ($university_id) use (
+            $request, $event, &$i
+        ) {
+            $data = [
+                'university_id' => $university_id,
+                'athlete_id' => $request->athlete_id[$i],
+                'score' => $request->score[$i],
+            ];
+
+            if ($request->is_winner == $i) {
+                $data = array_merge($data, ['is_winner' => true]);
+            }
+
+            $event->results()->save(new EventResult($data));
+
+            $i++;  
+        });
+    }
+
+    /**
+     * Create base event model.
+     * 
+     * @param  \Illuminate\Http\Request $request
+     * @return \Atom26\Web\Event
+     */
+    private function createEventModel(Request $request)
+    {
+        return Event::create([
+            'name' => $request->name,
+            'venue' => $request->venue,
+            'sport_id' => $request->sport_id,
+            'date' => $this->parseDate($request->date)
+        ]);
     }
 
     /**
