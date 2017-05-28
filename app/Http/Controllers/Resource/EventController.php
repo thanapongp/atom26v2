@@ -39,7 +39,9 @@ class EventController extends Controller
      */
     public function indexDashboard()
     {
-        return view('dashboard.sport.index');
+        return view('dashboard.sport.index', [
+            'events' => Event::all()
+        ]);
     }
 
     /**

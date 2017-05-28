@@ -16,6 +16,25 @@ class Event extends Model
     protected $guarded = ['id'];
 
     /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    protected $with = ['sport', 'results'];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'date',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
+
+    /**
      * Get the sport type of this event.
      * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

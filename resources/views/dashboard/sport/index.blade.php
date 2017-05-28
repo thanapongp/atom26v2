@@ -35,6 +35,22 @@
         </a>
     </h4>
     <div class="card-block">
+        <table class="table">
+            <thead>
+                <th>ชื่อการแข่ง</th>
+                <th>ประเภทกีฬา</th>
+                <th>เวลา</th>
+            </thead>
+            <tbody>
+                @foreach($events as $event)
+                <tr>
+                    <td>{{$event->name}}</td>
+                    <td>{{$event->sport->name}}</td>
+                    <td>{{$event->date->format('d/m/Y H:i')}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </div>
 @endsection
