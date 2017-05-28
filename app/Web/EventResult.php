@@ -23,4 +23,14 @@ class EventResult extends Model
     {
         return $this->belongsTo(User::class, 'athlete_id');
     }
+
+    /**
+     * Get the result from this event
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function sets()
+    {
+        return $this->hasMany(EventSet::class);
+    }
 }

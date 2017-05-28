@@ -93,6 +93,18 @@ class EventController extends Controller
     }
 
     /**
+     * Show form for adding football form.
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function showVolleyballForm()
+    {
+        $universities = University::all();
+
+        return view('dashboard.sport.volleyball', compact('universities'));
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

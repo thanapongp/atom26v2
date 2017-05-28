@@ -3,6 +3,7 @@
 namespace Atom26\Web;
 
 use Atom26\Sports\Sport;
+use Atom26\Web\EventSet;
 use Atom26\Web\EventResult;
 use Illuminate\Database\Eloquent\Model;
 
