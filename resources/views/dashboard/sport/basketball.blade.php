@@ -46,25 +46,6 @@
             <input type="hidden" name="sport_id" value="2">
             <input type="hidden" name="label" value="basketball">
 
-            {{--type--}}
-            <fieldset class="form-group">
-                <legend>ประเภทการแข่งขัน</legend>
-                <div class="form-check-inline">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input"
-                               name="optionType" value="single" checked>
-                        เดี่ยว
-                    </label>
-                </div>
-                <div class="form-check-inline">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input"
-                               name="optionType" value="team">
-                        ทีม
-                    </label>
-                </div>
-            </fieldset>
-
             <table class="table w-100">
                 <thead>
                     <th>ชื่อทีม</th>
