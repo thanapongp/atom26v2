@@ -84,7 +84,7 @@
 
                 <label class="mt-2">เวลา</label>
                 <input name="time[{{$i}}]" type="text" class="form-control">
-                <small class="form-text text-muted">เช่น "1:23.45" ใส่ DNF ถ้าถูกปรับแพ้ หรือไม่ได้เข้าแข่งขัน</small>
+                <small class="form-text text-muted">เช่น "1:23.45" ใส่ W ถ้าถูกปรับแพ้ หรือไม่ได้เข้าแข่งขัน ใส่ NA ถ้าไม่มีเวลา</small>
             </div>
             <hr>
             @endfor
@@ -153,6 +153,8 @@ function fetchAthletes(value, selector) {
             let option = new Option(user.name, user.id);
             options.push(option);
         });
+
+        options.push(new Option('ไม่ได้เข้าแข่งขัน', ''));
 
         loading_icon.hide();
         athlete_select.find('option').remove();
