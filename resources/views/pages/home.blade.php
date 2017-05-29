@@ -8,12 +8,12 @@
 
 @section('content')
 	@include('partials.home.carousel')
-	
-	@include('partials.home.news')
-	
+
 	@if($galleries->count() > 0)
 	@include('partials.home.gallery')
 	@endif
+	
+	@include('partials.home.news')
 	
 	@include('partials.home.info')
 @endsection
