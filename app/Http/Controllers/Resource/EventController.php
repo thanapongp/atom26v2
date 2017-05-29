@@ -98,7 +98,7 @@ class EventController extends Controller
     }
 
     /**
-     * Show form for adding football form.
+     * Show form for adding volleyball form.
      * 
      * @return \Illuminate\Http\Response
      */
@@ -110,7 +110,7 @@ class EventController extends Controller
     }
 
     /**
-     * Show form for adding football form.
+     * Show form for adding takraw form.
      * 
      * @return \Illuminate\Http\Response
      */
@@ -122,7 +122,7 @@ class EventController extends Controller
     }
 
     /**
-     * Show form for adding football form.
+     * Show form for adding esport form.
      * 
      * @return \Illuminate\Http\Response
      */
@@ -131,6 +131,42 @@ class EventController extends Controller
         $universities = University::all();
 
         return view('dashboard.sport.esport', compact('universities'));
+    }
+
+    /**
+     * Show form for adding bridge score.
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function showBridgeForm()
+    {
+        $universities = University::all();
+
+        return view('dashboard.sport.bridge', compact('universities'));
+    }
+
+    /**
+     * Show form for adding board score.
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function showBoardForm()
+    {
+        $universities = University::all();
+
+        return view('dashboard.sport.board', compact('universities'));
+    }
+
+    /**
+     * Show form for adding futsal score.
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function showFutsalForm()
+    {
+        $universities = University::all();
+
+        return view('dashboard.sport.futsal', compact('universities'));
     }
 
     /**

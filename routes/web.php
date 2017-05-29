@@ -96,7 +96,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
         ->name('event.create.basketball');
     Route::get('/editor/sport/add/football', 'Resource\EventController@showFootballForm')
         ->name('event.create.football');
-    Route::get('/editor/sport/add/footsal', 'Resource\EventController@showFootsalForm')
+    Route::get('/editor/sport/add/footsal', 'Resource\EventController@showFutsalForm')
         ->name('event.create.footsal');
     Route::get('/editor/sport/add/volleyball', 'Resource\EventController@showVolleyballForm')
         ->name('event.create.volleyball');

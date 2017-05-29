@@ -74,7 +74,15 @@
                     <td>{{$event->sport->name}}</td>
 
                     @if($event->sport->id != 1)
-                    <td>{{$event->results[0]->score}} - {{$event->results[1]->score}}</td>
+                    <td>
+                        @if($event->results[0]->score != null)
+                        {{$event->results[0]->score}} - {{$event->results[1]->score}}
+                        @elseif($event->results[0]->is_winner)
+                        {{$event->results[0]->university->code}} ชนะ
+                        @else
+                        {{$event->results[1]->university->code}} ชนะ
+                        @endif
+                    </td>
                     @endif
 
                     <td>{{$event->date->format('d/m/Y H:i')}}</td>

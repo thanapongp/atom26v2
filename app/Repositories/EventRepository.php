@@ -233,6 +233,93 @@ class EventRepository
     }
 
     /**
+     * Create bridge event record.
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @param \Atom26\Web\Event   $event
+     */
+    protected function CreateBridgeEvent(Request $request, Event $event)
+    {
+        $i = 1;
+
+        collect($request->university_id)->each(function ($university_id) use (
+            $request, $event, &$i
+        ) {
+            $data = [
+                'university_id' => $university_id,
+                'athlete_id' => $request->athlete_id[$i],
+                'score' => $request->score[$i],
+            ];
+
+            if ($request->is_winner == $i) {
+                $data = array_merge($data, ['is_winner' => true]);
+            }
+
+            $event->results()->save(new EventResult($data));
+
+            $i++;  
+        });
+    }
+
+    /**
+     * Create board event record.
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @param \Atom26\Web\Event   $event
+     */
+    protected function CreateBoardEvent(Request $request, Event $event)
+    {
+        $i = 1;
+
+        collect($request->university_id)->each(function ($university_id) use (
+            $request, $event, &$i
+        ) {
+            $data = [
+                'university_id' => $university_id,
+                'athlete_id' => $request->athlete_id[$i],
+                'score' => $request->score[$i],
+            ];
+
+            if ($request->is_winner == $i) {
+                $data = array_merge($data, ['is_winner' => true]);
+            }
+
+            $event->results()->save(new EventResult($data));
+
+            $i++;  
+        });
+    }
+
+    /**
+     * Create futsal event record.
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @param \Atom26\Web\Event   $event
+     */
+    protected function CreateFutalEvent(Request $request, Event $event)
+    {
+        $i = 1;
+
+        collect($request->university_id)->each(function ($university_id) use (
+            $request, $event, &$i
+        ) {
+            $data = [
+                'university_id' => $university_id,
+                'athlete_id' => $request->athlete_id[$i],
+                'score' => $request->score[$i],
+            ];
+
+            if ($request->is_winner == $i) {
+                $data = array_merge($data, ['is_winner' => true]);
+            }
+
+            $event->results()->save(new EventResult($data));
+
+            $i++;  
+        });
+    }
+
+    /**
      * Create base event model.
      * 
      * @param  \Illuminate\Http\Request $request
