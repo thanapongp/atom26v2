@@ -46,25 +46,6 @@
             <input type="hidden" name="sport_id" value="5">
             <input type="hidden" name="label" value="pethong">
 
-            {{--type--}}
-            <fieldset class="form-group">
-                <legend>ประเภทการแข่งขัน</legend>
-                <div class="form-check-inline">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input"
-                               name="optionType" value="single" checked>
-                        เดี่ยว
-                    </label>
-                </div>
-                <div class="form-check-inline">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input"
-                               name="optionType" value="team">
-                        ทีม
-                    </label>
-                </div>
-            </fieldset>
-
             <table class="table w-100">
                 <thead>
                     <th>ชื่อทีม/ผู้เข้าแข่งขัน</th>
@@ -74,19 +55,11 @@
                 <tbody>
                     <tr>
                     <td>
-                        <label class="d-block">สถาบัน</label>
                         <select name="university_id[1]" class="form-control">
                             @foreach($universities as $university)
                             <option value="{{$university->id}}">({{$university->code}}) {{$university->name}}</option>
                             @endforeach
                         </select>
-
-                        <div class="athletic-container">
-                            <label class="mt-2 d-block">ชื่อผู้เข้าแข่งขัน</label>
-                            <select name="athlete_id[1]" class="form-control d-inline-block">
-                            </select>
-                            <i class="fa fa-spinner fa-pulse fa-fw loading-icon"></i>
-                        </div>
                     </td>
                     <td>
                         <input name="score[1]" type="text" class="form-control" style="width: 100px">
@@ -98,19 +71,12 @@
 
                     <tr>
                     <td>
-                        <label class="d-block">สถาบัน</label>
                         <select name="university_id[2]" class="form-control">
                             @foreach($universities as $university)
                             <option value="{{$university->id}}">({{$university->code}}) {{$university->name}}</option>
                             @endforeach
                         </select>
 
-                        <div class="athletic-container">
-                            <label class="mt-2 d-block">ชื่อผู้เข้าแข่งขัน</label>
-                            <select name="athlete_id[2]" class="form-control d-inline-block">
-                            </select>
-                            <i class="fa fa-spinner fa-pulse fa-fw loading-icon"></i>
-                        </div>
                     </td>
                     <td>
                         <input name="score[2]" type="text" class="form-control" style="width: 100px">
@@ -138,18 +104,6 @@
 <script src="/js/moment.js"></script>
 <script src="/js/bootstrap-datetimepicker.js"></script>
 <script type="text/javascript">
-$('input[name="optionType"]').on('change', function () {
-    if ($(this).val() === 'team') {
-        $('.athletic-container').hide().find('select').attr('disabled', true);
-    } else {
-        $('.athletic-container').show().find('select').attr('disabled', false);
-        $('select[name^="university_id"]').trigger('change');
-    }
-});
-
-$('select[name^="athlete_id"]').select2({
-    width: '100%'
-});
 
 $('select[name^="university_id"]').select2({
     width: '100%'
