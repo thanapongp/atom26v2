@@ -50,7 +50,7 @@ class EventRepository
             if ($request->time[$i] == 'NA') {
                 return;
             }
-            
+
             $event->results()->save(new EventResult([
                 'university_id' => $university_id,
                 'athlete_id' => $request->athlete_id[$i],
@@ -251,7 +251,6 @@ class EventRepository
         ) {
             $data = [
                 'university_id' => $university_id,
-                'athlete_id' => $request->athlete_id[$i],
                 'score' => $request->score[$i],
             ];
 

@@ -84,6 +84,22 @@
                         <input type="radio" name="is_winner" value="2">
                     </td>
                     </tr>
+
+                    <tr>
+                    <td>
+                        <select name="university_id[3]" class="form-control">
+                            @foreach($universities as $university)
+                            <option value="{{$university->id}}">({{$university->code}}) {{$university->name}}</option>
+                            @endforeach
+                        </select>
+                    </td>
+                    <td>
+                        <input name="score[3]" type="text" class="form-control" style="width: 100px">
+                    </td>
+                    <td>
+                        <input type="radio" name="is_winner" value="3">
+                    </td>
+                    </tr>
                 </tbody>
             </table>
             
