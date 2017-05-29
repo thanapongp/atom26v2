@@ -53,6 +53,7 @@
                 data-toggle="lightbox" data-gallery="gallery" class="col gallery-image" 
                 style="
                 background-image: url({{$photo->path}});
+                background-position: {{$loop->last ? 'top' : 'center'}};
                 max-height: 175px;">
                 </a>
                 @endforeach
