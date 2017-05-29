@@ -45,7 +45,7 @@ class EventController extends Controller
     public function indexDashboard()
     {
         return view('dashboard.sport.index', [
-            'events' => Event::all()
+            'events' => Event::orderBy('date', 'asc')->get()->groupBy('sport.label')
         ]);
     }
 

@@ -34,41 +34,65 @@
             <i class="fa fa-newspaper-o"></i> จัดการข่าว
         </a>
     </h4>
+
     <div class="card-block">
-        <table class="table">
+        <ul class="nav nav-tabs" role="tablist">
+            @foreach($events as $type => $_)
+            <li class="nav-item">
+                <a class="nav-link{{$loop->first ? ' active' : ''}}" href="#{{$type}}"
+                data-toggle="tab" role="tab">
+                    {{$_[0]->sport->name}}
+                </a>
+            </li>
+            @endforeach    
+        </ul>
+        
+        <div class="tab-content">
+
+        @foreach($events as $chunk)
+        <div class="tab-pane{{$loop->first ? ' active' : ''}}" 
+        id="{{$chunk[0]->sport->label}}" role="tabpanel">
+
+        <table class="table mt-4">
             <thead>
                 <th>ชื่อการแข่ง</th>
                 <th>ประเภทกีฬา</th>
+                @if($chunk[0]->sport->id != 1)
+                <th>คะแนน</th>
+                @endif
                 <th>เวลา</th>
             </thead>
             <tbody>
-                @foreach($events as $event)
+                @foreach($chunk as $event)
                 <tr>
-                    <td>{{$event->name}}</td>
+                    <td>
+                        {{$event->name}} 
+                        @if($event->sport->id != 1)
+                        ({{$event->results[0]->university->code}} vs. {{$event->results[1]->university->code}})
+                        @endif
+                    </td>
                     <td>{{$event->sport->name}}</td>
+
+                    @if($event->sport->id != 1)
+                    <td>{{$event->results[0]->score}} - {{$event->results[1]->score}}</td>
+                    @endif
+
                     <td>{{$event->date->format('d/m/Y H:i')}}</td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+
+        </div>
+        @endforeach
+
+        </div>
+
     </div>
+
 </div>
 @endsection
 
 @section('js')
-    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js"></script>
-    <script src="//cdn.datatables.net/plug-ins/1.10.15/type-detection/date-uk.js"></script>
-    <script src="//cdn.datatables.net/plug-ins/1.10.15/sorting/date-uk.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#newsTable').DataTable({
-                "language": {"url" : "//cdn.datatables.net/plug-ins/1.10.12/i18n/Thai.json"},
-                "columnDefs": [
-                    { "type": "date-uk", targets: 1 }
-                ],
-                "order": [[ 1, "desc" ]]
-            });
-        });
-    </script>
+
 @endsection
