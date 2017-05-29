@@ -98,9 +98,7 @@ class UserRepository
     {
         return User::whereHas('info.university', function ($query) use ($universityID)  {
             return $query->where('id', $universityID);
-        })->whereHas('sports', function ($query) use ($sportID)  {
-            return $query->where('sport_id', $sportID);
-        })->get()->map(function ($user) {
+        })->has('sports')->get()->map(function ($user) {
             return collect(['id' => $user->id, 'name' => $user->fullname()]);
         });
     }
