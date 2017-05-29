@@ -41,7 +41,7 @@ class PagesController extends Controller
         });
 
         $galleries = Cache::remember('home-gallery', 60, function () {
-            return Gallery::latest()->limit(5)->get();
+            return Gallery::latest()->limit(10)->get();
         });
 
         return view('pages.home', compact('news', 'galleries'));

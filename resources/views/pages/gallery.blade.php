@@ -4,7 +4,7 @@
 <meta property="og:url" content="{{url()->current()}}" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="{{$gallery->name}}" />
-<meta property="og:image" content="{{$gallery->photos->first()->path}}" />
+<meta property="og:image" content="{{url($gallery->photos->first()->path)}}" />
 @endsection
 
 @section('css')
@@ -46,20 +46,14 @@
     <div class="gallery">
 
         <div class="gallery-wrapper">
-            <div class="row">
-                <a href="{{url($gallery->photos->first()->path)}}" 
-                data-toggle="lightbox" data-gallery="gallery" class="col gallery-image"
-                style="
-                background-image: url({{$gallery->photos->first()->path}});
-                background-position: top;">
-                </a>
-            </div>
-            @foreach($gallery->photos->splice(1)->chunk(2) as $chunk)
+            @foreach($gallery->photos->chunk(5) as $chunk)
             <div class="row">
                 @foreach($chunk as $photo)
                 <a href="{{url($photo->path)}}" 
                 data-toggle="lightbox" data-gallery="gallery" class="col gallery-image" 
-                style="background-image: url({{$photo->path}})">
+                style="
+                background-image: url({{$photo->path}});
+                max-height: 175px;">
                 </a>
                 @endforeach
             </div>
