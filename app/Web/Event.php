@@ -6,9 +6,12 @@ use Atom26\Sports\Sport;
 use Atom26\Web\EventSet;
 use Atom26\Web\EventResult;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Event extends Model
 {
+    use SoftDeletes;
+
     /**
      * The attributes that aren't mass assignable.
      *
