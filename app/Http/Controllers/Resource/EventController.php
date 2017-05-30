@@ -170,6 +170,18 @@ class EventController extends Controller
     }
 
     /**
+     * Show form for adding academic score.
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function showAcademicForm()
+    {
+        $universities = University::all();
+
+        return view('dashboard.sport.academic', compact('universities'));
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -198,6 +210,10 @@ class EventController extends Controller
 
         if ($request->sport == 1) {
             return view('pages.event.showAthlete', compact('events'));
+        }
+
+        if ($request->sport == 10) {
+            return view('pages.event.showAcademic', compact('events'));
         }
 
         if (in_array($request->sport, [2, 3, 5, 6, 7, 8, 9, 10, 11])) {

@@ -46,7 +46,6 @@
                         <thead>
                             <th>ลำดับที่</th>
                             <th>{{$event->results[0]->athlete ? 'ชื่อนักกีฬา' : 'ชื่อสถาบัน'}}</th>
-                            <th>เวลา</th>
                         </thead>
                         <tbody>
                             @foreach($event->results as $result)
@@ -66,9 +65,6 @@
                                 <img src="/img/logo-uni/logo{{$result->university->code}}.png">
                                 {{$result->athlete ? "({$result->university->code}) " . $result->athlete->fullname() 
                                 : $result->university->name}}
-                            </td>
-                            <td>
-                                {{$result->time}}
                             </td>
                             </tr>
                             @endforeach

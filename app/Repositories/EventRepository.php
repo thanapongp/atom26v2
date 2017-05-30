@@ -323,6 +323,29 @@ class EventRepository
     }
 
     /**
+     * Create academic event record.
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @param \Atom26\Web\Event   $event
+     */
+    protected function CreateAcedemicEvent(Request $request, Event $event)
+    {
+        $i = 1;
+
+        collect($request->university_id)->each(function ($university_id) use (
+            $request, $event, &$i
+        ) {
+
+            $event->results()->save(new EventResult([
+                'university_id' => $university_id,
+                'order' => $i,
+            ]));
+
+            $i++;
+        });
+    }
+
+    /**
      * Create base event model.
      * 
      * @param  \Illuminate\Http\Request $request
