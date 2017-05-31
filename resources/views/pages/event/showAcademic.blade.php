@@ -1,11 +1,11 @@
 @extends('layout.main')
 
-@section('title', 'ผลการแข่งขันกรีฑา')
+@section('title', 'ผลการแข่งขันวิชาการ')
 
 @section('content')
 <div class="content-container">
     <div class="section-header">
-        <div class="w-100 text-center">ผลการแข่งขัน<span style="color: #FFA02F">กรีฑา</span></div>
+        <div class="w-100 text-center">ผลการแข่งขัน<span style="color: #FFA02F">วิชาการ</span></div>
     </div>
 
     @if($events->isEmpty())
