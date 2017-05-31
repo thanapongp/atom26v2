@@ -216,7 +216,11 @@ class EventController extends Controller
             return view('pages.event.showAcademic', compact('events'));
         }
 
-        if (in_array($request->sport, [2, 3, 5, 6, 7, 8, 9, 10, 11])) {
+        if ($request->sport == 7) {
+            return view('pages.event.showBoard', compact('sport', 'events'));
+        }
+
+        if (in_array($request->sport, [2, 3, 5, 6, 8, 9, 10, 11])) {
             return view('pages.event.showTeamBased', compact('sport', 'events'));
         }
 
